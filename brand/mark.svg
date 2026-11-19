@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="Renaissance Studio">
+  <!-- Renaissance Studio mark: an arched Renaissance window that doubles as a browser frame (transom bar = address bar). -->
+  <path d="M8 45V22a16 16 0 0 1 32 0v23z" fill="#2447D6"/>
+  <path d="M14.5 45V23a9.5 9.5 0 0 1 19 0v22" fill="none" stroke="#FFFFFF" stroke-width="2.6"/>
+  <path d="M14.5 29.5h19" fill="none" stroke="#FFFFFF" stroke-width="2.6"/>
+  <circle cx="24" cy="5.5" r="2.6" fill="#FFB547"/>
+</svg>

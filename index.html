@@ -166,7 +166,7 @@ details p{margin:-8px 4px 24px;color:var(--muted);font-size:16px;max-width:56ch}
 .cta-box h2{color:#fff;margin-top:0}
 .cta-box p{margin:0;color:rgba(255,255,255,.85);font-size:17px}
 form{display:grid;gap:12px;background:#fff;border-radius:18px;padding:24px;color:#0f1530}
-input,select{font:inherit;font-size:15px;padding:13px 14px;border-radius:10px;border:1.5px solid #dfe3ee;width:100%;background:#f7f8fb;color:#0f1530}
+input,select,textarea{font:inherit;font-size:15px;padding:13px 14px;border-radius:10px;border:1.5px solid #dfe3ee;width:100%;background:#f7f8fb;color:#0f1530}
 form .btn{background:#0f1530;color:#fff;justify-content:center}
 .row2{display:grid;grid-template-columns:1fr 110px;gap:12px}
 .ok.err{background:#ffe9e6;color:#8a1c0f}
@@ -339,6 +339,7 @@ footer{background:var(--dark);color:var(--on-dark);padding-block:64px 32px}
     <select id="f-ind" name="industry" aria-label="Industry"><option value="">Industry</option><option>Home services</option><option>Restaurant or café</option><option>Salon or spa</option><option>Health or dental</option><option>Professional services</option><option>Retail</option><option>Other</option></select>
     <div class="row2"><input id="f-city" name="city" type="text" placeholder="City" aria-label="City" autocomplete="address-level2" maxlength="60"><select id="f-state" name="state" aria-label="State" autocomplete="address-level1"><option value="">State</option><option>AL</option><option>AK</option><option>AZ</option><option>AR</option><option>CA</option><option>CO</option><option>CT</option><option>DE</option><option>DC</option><option>FL</option><option>GA</option><option>HI</option><option>ID</option><option>IL</option><option>IN</option><option>IA</option><option>KS</option><option>KY</option><option>LA</option><option>ME</option><option>MD</option><option>MA</option><option>MI</option><option>MN</option><option>MS</option><option>MO</option><option>MT</option><option>NE</option><option>NV</option><option>NH</option><option>NJ</option><option>NM</option><option>NY</option><option>NC</option><option>ND</option><option>OH</option><option>OK</option><option>OR</option><option>PA</option><option>RI</option><option>SC</option><option>SD</option><option>TN</option><option>TX</option><option>UT</option><option>VT</option><option>VA</option><option>WA</option><option>WV</option><option>WI</option><option>WY</option></select></div>
     <input id="f-first" name="firstName" type="text" placeholder="Your first name" aria-label="Your first name" autocomplete="given-name" maxlength="60">
+    <textarea id="f-note" name="detail" rows="2" maxlength="300" placeholder="What do you do, and for who? (optional)" aria-label="What do you do, and for who? (optional)"></textarea>
     <input id="f-contact" name="contact" type="text" placeholder="Email or mobile" aria-label="Email or mobile" autocomplete="email" maxlength="120" required>
     <input name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
     <button class="btn" type="submit">Design my concept</button>
@@ -373,7 +374,7 @@ footer{background:var(--dark);color:var(--on-dark);padding-block:64px 32px}
     fetch(LEAD_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
       .then(function(r){return r.json().catch(function(){return {ok:r.ok};});})
       .then(function(res){
-        if(res&&res.ok){f.querySelectorAll('input,select').forEach(function(x){x.disabled=true;});btn.textContent='Sent';say('Thanks! We got it and will send your free concept shortly.');}
+        if(res&&res.ok){f.querySelectorAll('input,select,textarea').forEach(function(x){x.disabled=true;});btn.textContent='Sent';say('Thanks! We got it and will send your free concept shortly.');}
         else{btn.disabled=false;btn.textContent='Design my concept';say((res&&res.message)||'Something went wrong. Please try again or email james@renaissancestudio.io.',true);}
       })
       .catch(function(){btn.disabled=false;btn.textContent='Design my concept';say('Something went wrong. Please try again or email james@renaissancestudio.io.',true);});

@@ -47,7 +47,7 @@ const CONFIG = {
   if(utms.some(k=>qs.has(k)))put('campaign',Object.fromEntries(utms.map(k=>[k,qs.get(k)||''])),true);
   const last=get('lead',{}), order=get('order',last);
   $$('[data-email]').forEach(a=>{a.textContent=CONFIG.CONTACT_EMAIL;a.href='mailto:'+CONFIG.CONTACT_EMAIL});
-  $$('header nav a,footer nav a').forEach(a=>{if(new URL(a.href).pathname.split('/').pop()===currentPage)a.setAttribute('aria-current','page')});
+  $$('header nav a,footer nav a').forEach(a=>{if(!(a.getAttribute('href')||'').startsWith('#')&&new URL(a.href).pathname.split('/').pop()===currentPage)a.setAttribute('aria-current','page')});
   $$('[data-menu]').forEach(b=>{
     const n=document.getElementById(b.getAttribute('aria-controls'));
     const close=()=>{n.classList.remove('open');b.setAttribute('aria-expanded','false')};
@@ -57,12 +57,12 @@ const CONFIG = {
   });
   $$('select[name=industry]').forEach(s=>{
     const initial=s.value||s.dataset.default;
-    s.replaceChildren(new Option('Select an industry',''));
-    Object.keys(mapping).forEach(i=>s.add(new Option(i[0].toUpperCase()+i.slice(1),i)));
+    s.replaceChildren(new Option('Choose one',''));
+    Object.keys(mapping).sort((a,b)=>(a==='other')-(b==='other')||a.localeCompare(b)).forEach(i=>s.add(new Option(i[0].toUpperCase()+i.slice(1),i)));
     if(initial in mapping)s.value=initial;
   });
   $$('select[name=state]').forEach(s=>{
-    s.replaceChildren(new Option('Select state',''));
+    s.replaceChildren(new Option('State',''));
     'AL AK AZ AR CA CO CT DE DC FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY AS GU MP PR VI'.split(' ').forEach(v=>s.add(new Option(v,v)));
   });
   function fields(f){
@@ -77,7 +77,11 @@ const CONFIG = {
   }
   function valid(root){
     for(const el of $$('input,textarea,select',root)){
-      if(el.name==='contact'){
+      if(el.name==='phone'){
+        const d=el.value.replace(/[\s().+-]/g,'');el.setCustomValidity(!d||/^1?[2-9]\d{2}[2-9]\d{6}$/.test(d)?'':'Enter a US cell number with area code, or leave it blank.');
+      }else if(el.name==='contact'&&el.type==='email'){
+        el.setCustomValidity(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim())?'':'Enter your email so we can send your free design.');
+      }else if(el.name==='contact'){
         const v=el.value.trim();
         const ok=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)||/^(?:\+?1)?[2-9]\d{2}[2-9]\d{6}$/.test(v.replace(/[\s().-]/g,''));
         el.setCustomValidity(ok?'':'Enter an email address or a US mobile number, including area code.');
@@ -87,6 +91,7 @@ const CONFIG = {
   }
   const payloadFields='type business industry detail city state firstName contact message hosting page utm_source utm_medium utm_campaign website'.split(' ');
   async function send(type,values){
+    if(values.phone&&type!=='contact')values={...values,message:[values.message,'Cell phone: '+values.phone].filter(Boolean).join('\n')};
     const data=Object.fromEntries(payloadFields.map(k=>[k,values[k]||'']));
     Object.assign(data,{type,page:location.pathname},get('campaign',{},true));
     if(CONFIG.LEAD_ENDPOINT){
@@ -141,6 +146,9 @@ const CONFIG = {
     };
     f.oninput=()=>{clearTimeout(debounce);debounce=setTimeout(paint,320)};paint();
   });
+  {const go=v=>{const img=$('img',v);if(img.src)return;img.src=`examples/${v.dataset.reel}/full-${v.dataset.kind||'desktop'}.webp`;window.RSReel&&RSReel.image(img)};
+   const reels=$$('[data-reel]');
+   if('IntersectionObserver'in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){io.unobserve(e.target);go(e.target)}}),{rootMargin:'300px 0px'});reels.forEach(v=>io.observe(v))}else reels.forEach(go)}
   $$('[data-viewer]').forEach(root=>{
     let cur=null;
     function choose(k){
@@ -155,7 +163,7 @@ const CONFIG = {
       if(cur)mount(root,cur);
     }
     $$('[data-width]',root).forEach(b=>b.onclick=()=>width(b.dataset.width));
-    width(innerWidth<=680?'phone':'desktop');choose(samples[qs.get('sample')]?qs.get('sample'):root.dataset.viewer||keys[0]);
+    if($('[data-width]',root)||innerWidth<=680)width(innerWidth<=680?'phone':'desktop');choose(samples[qs.get('sample')]?qs.get('sample'):root.dataset.viewer||keys[0]);
   });
   function wizard(f,initial,finish,changed=()=>{}){
     const steps=$$('[data-step]',f);let i=0,busy=false;
@@ -192,11 +200,12 @@ const CONFIG = {
     if(pre&&start>0){const v=fields(concept);text('[data-prefill-text]',[v.business,v.industry&&v.industry.replace(/^./,c=>c.toUpperCase()),[v.city,v.state].filter(Boolean).join(', ')].filter(Boolean).join('  ·  '),pre);show(pre,true)}
     if(start>0)requestAnimationFrame(()=>{concept.scrollIntoView({block:'start',behavior:'auto'});const el=$$('input[required],textarea[required]',$$('[data-step]',concept)[start]).find(x=>!x.value.trim());if(el)el.focus({preventScroll:true})});
     wizard(concept,start,async()=>{
-      lead=await send('concept_request',fields(concept));k=mapping[lead.industry]||keys[0];
-      show(concept,false);show(design,true);focusBlock(design);await new Promise(r=>setTimeout(r,3200));
+      lead=await send('concept_request',fields(concept));if(concept.dataset.after){location.assign(concept.dataset.after);return}k=mapping[lead.industry]||keys[0];
+      show(concept.closest('[data-concept-card]')||concept,false);show(design,true);focusBlock(design);await new Promise(r=>setTimeout(r,3200));
       show(design,false);show(reveal,true);text('[data-business]',lead.business,reveal);text('[data-contact]',lead.contact,reveal);
       update();focusBlock(reveal);
     });
+    if(reveal){
     $('[data-cycle]',reveal).onclick=()=>{k=keys[(keys.indexOf(k)+1)%keys.length];update()};
     const cont=$('[data-checkout]',dlg),choice=()=>$('input[name=hosting]:checked',dlg)?.value;
     function host(){const v=choice();show($('[data-builder]',dlg),v==='builder');show(cont,v!=='builder');cont.disabled=!v||v==='builder';err(dlg,'')}
@@ -215,6 +224,8 @@ const CONFIG = {
         location.assign(url.href)
       }catch(e){err(dlg,e.message);cont.disabled=false}
     };
+    if(qs.has('ready')&&last.business){lead=last;k=mapping[lead.industry]||keys[0];show(concept.closest('[data-concept-card]')||concept,false);show(design,true);setTimeout(()=>{show(design,false);show(reveal,true);text('[data-business]',lead.business,reveal);text('[data-contact]',lead.contact,reveal);update();focusBlock(reveal)},1400)}
+    }
   }
   const pay=$('[data-demo-pay]');
   if(pay){

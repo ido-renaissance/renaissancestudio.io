@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /checkout.html
+Disallow: /start/
+Disallow: /examples/
+Sitemap: https://renaissancestudio.io/sitemap.xml

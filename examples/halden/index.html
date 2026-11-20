@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Halden Roofing Co. | Residential Roofing in Charlotte, NC</title>
+<meta name="description" content="Residential roof replacement, metal roofing, repairs and storm damage help in Charlotte, NC. Free roof inspections with a written photo report. Call (704) 555-0117.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --slate:#1F2326; --slate-2:#2B3034; --slate-3:#3A4045;
+  --copper:#B5652B; --copper-ink:#95501F; --copper-dk:#7C4219; --copper-lt:#DB8F57;
+  --stone:#E9E6E1; --paper:#F7F5F2; --ink:#1F2326; --muted:#4A4F54; --line:#CFC9C1;
+  --head:"Archivo",system-ui,sans-serif; --body:"Public Sans",system-ui,sans-serif;
+  --wrap:1240px; --pad:clamp(1.25rem,4vw,3rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;font-family:var(--body);font-size:1.0625rem;line-height:1.6;color:var(--ink);background:var(--paper)}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--head);line-height:1.08;margin:0 0 .5em;letter-spacing:-.015em}
+h2{font-size:clamp(2rem,4.2vw,3.25rem);font-weight:800}
+h3{font-size:1.375rem;font-weight:700}
+p{margin:0 0 1em}
+a{color:var(--copper-ink);text-underline-offset:3px}
+a:hover{color:var(--copper-dk)}
+:focus-visible{outline:3px solid var(--copper-lt);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+section{scroll-margin-top:72px}
+.skip{position:absolute;left:-999px;top:0;background:#fff;color:var(--ink);padding:.75rem 1rem;z-index:100}
+.skip:focus{left:1rem;top:1rem}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--head);font-weight:700;font-size:1.0625rem;
+  padding:.95rem 1.4rem;border-radius:3px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s}
+.btn-copper{background:var(--copper-ink);color:#fff}
+.btn-copper:hover{background:var(--copper-dk);color:#fff}
+.btn-ghost{border-color:rgba(233,230,225,.5);color:var(--stone)}
+.btn-ghost:hover{border-color:var(--stone);color:#fff}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* Header */
+.site-head{position:sticky;top:0;z-index:50;background:var(--slate);color:var(--stone);border-bottom:1px solid var(--slate-3)}
+.head-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:68px}
+.logo{display:flex;align-items:center;gap:.65rem;color:#fff;text-decoration:none;font-family:var(--head);font-weight:800;font-size:1.2rem;letter-spacing:-.01em}
+.logo svg{width:34px;height:26px;flex:none}
+.logo:hover{color:#fff}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1.6rem}
+.nav a,.head-cta a{white-space:nowrap}
+.nav .mob-cta{display:none}
+.nav a{color:var(--stone);text-decoration:none;font-weight:500;font-size:.98rem}
+.nav a:hover{color:var(--copper-lt)}
+.head-cta{display:flex;align-items:center;gap:1.1rem}
+.head-phone{color:#fff;font-family:var(--head);font-weight:700;text-decoration:none;white-space:nowrap}
+.head-phone:hover{color:var(--copper-lt)}
+.head-cta .btn{padding:.6rem 1rem;font-size:.95rem}
+.menu-btn{display:none;background:none;border:2px solid var(--slate-3);color:#fff;border-radius:3px;padding:.5rem .7rem;font:600 .95rem var(--body);cursor:pointer;align-items:center;gap:.5rem}
+.menu-btn span.bars{display:block;width:18px;height:2px;background:currentColor;position:relative}
+.menu-btn span.bars::before,.menu-btn span.bars::after{content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor}
+.menu-btn span.bars::before{top:-6px}.menu-btn span.bars::after{top:6px}
+.menu-btn[aria-expanded="true"] span.bars{background:transparent}
+.menu-btn[aria-expanded="true"] span.bars::before{top:0;transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] span.bars::after{top:0;transform:rotate(-45deg)}
+
+/* Hero */
+.hero{background:var(--slate);color:var(--stone);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);min-height:min(78vh,720px)}
+.hero-copy{padding:clamp(3rem,7vw,6rem) clamp(1.5rem,4vw,4rem) clamp(3rem,6vw,5rem) max(var(--pad),calc((100vw - var(--wrap))/2 + var(--pad)));display:flex;flex-direction:column;justify-content:center}
+.hero h1{color:#fff;font-size:clamp(2.6rem,5.4vw,4.6rem);font-weight:800;line-height:1.0;letter-spacing:-.025em;margin-bottom:.4em}
+.hero h1 .rule{display:block;width:72px;height:6px;background:var(--copper);margin-bottom:1.6rem}
+.hero-lede{font-size:1.15rem;max-width:34ch;color:#D9D5CF}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin:1.6rem 0 2rem}
+.hero-facts{list-style:none;margin:0;padding:1.4rem 0 0;border-top:1px solid var(--slate-3);display:grid;grid-template-columns:repeat(3,auto);gap:1rem 1.6rem;font-size:.92rem;color:#C9C4BD}
+.hero-facts strong{display:block;color:#fff;font-family:var(--head);font-size:1.05rem}
+.hero-img{position:relative;overflow:hidden;min-height:320px}
+.hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 45%}
+@media (prefers-reduced-motion:no-preference){
+  .hero-img img{animation:settle 1.6s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes settle{from{transform:scale(1.05)}to{transform:scale(1)}}
+}
+
+/* Offer */
+.offer{background:var(--copper-ink);color:#fff}
+.offer .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem 2rem;padding-top:1.1rem;padding-bottom:1.1rem;flex-wrap:wrap}
+.offer p{margin:0;font-size:1.02rem}
+.offer strong{font-family:var(--head)}
+.offer a{color:#fff;font-weight:700;white-space:nowrap}
+.offer a:hover{color:var(--stone)}
+
+/* Owner */
+.owner{padding:clamp(4rem,8vw,7rem) 0}
+.owner .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:clamp(2rem,6vw,6rem);align-items:start}
+.owner h2{max-width:16ch}
+.note{font-size:1.15rem;max-width:60ch}
+.note p:first-of-type::first-letter{font-family:var(--head);font-weight:800;font-size:3.6em;float:left;line-height:.85;margin:.06em .1em 0 0;color:var(--copper)}
+.sig{font-family:var(--head);font-weight:700;margin-top:1.5rem}
+.sig span{display:block;font-family:var(--body);font-weight:400;color:var(--muted);font-size:.95rem}
+.basics{background:var(--stone);padding:1.8rem;border-top:5px solid var(--slate)}
+.basics h3{font-size:1.15rem}
+.basics ul{list-style:none;margin:0;padding:0}
+.basics li{padding:.7rem 0 .7rem 1.8rem;border-bottom:1px solid var(--line);position:relative;font-size:.98rem}
+.basics li:last-child{border-bottom:0}
+.basics li svg{position:absolute;left:0;top:1rem;width:16px;height:16px}
+
+/* Materials */
+.materials{background:var(--stone);padding:clamp(4rem,8vw,7rem) 0}
+.mat-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem 4rem;align-items:end;margin-bottom:3rem}
+.mat-head p{color:var(--muted);margin:0;max-width:52ch}
+.mat-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,4vw,4rem)}
+.mat-photo{margin:0;position:relative}
+.mat-photo img{width:100%;height:100%;min-height:420px;object-fit:cover;object-position:40% 50%}
+.mat-photo figcaption{position:absolute;left:0;bottom:0;background:var(--slate);color:var(--stone);font-size:.88rem;padding:.7rem 1rem;max-width:85%}
+.mat-list{list-style:none;margin:0;padding:0;border-top:2px solid var(--slate)}
+.mat-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.4rem 2rem;padding:1.8rem 0;border-bottom:1px solid var(--line)}
+.mat-item h3{margin:0}
+.mat-item p{grid-column:1/-1;margin:.3rem 0 .4rem;color:var(--muted)}
+.price{font-family:var(--head);font-weight:800;font-size:1.35rem;text-align:right;white-space:nowrap}
+.price small{display:block;font-family:var(--body);font-weight:500;font-size:.82rem;color:var(--muted)}
+.specs{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin:0;font-size:.92rem}
+.specs div{display:flex;gap:.35rem}
+.specs dt{font-weight:700}
+.specs dd{margin:0;color:var(--muted)}
+.mat-note{font-size:.9rem;color:var(--muted);margin-top:1.2rem}
+
+/* Process */
+.process{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--paper)}
+.process-img{position:relative;min-height:100%}
+.process-img img{position:sticky;top:68px;width:100%;height:calc(100vh - 68px);max-height:860px;object-fit:cover;object-position:45% 40%}
+.process-copy{padding:clamp(4rem,7vw,6.5rem) max(var(--pad),calc((100vw - var(--wrap))/2 + var(--pad))) clamp(4rem,7vw,6.5rem) clamp(2rem,5vw,5rem)}
+.process-copy>p{color:var(--muted);max-width:46ch}
+.steps{list-style:none;margin:2.5rem 0 0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;position:relative;padding:0 0 2.4rem 4.5rem}
+.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:-.2rem;font-family:var(--head);font-weight:800;font-size:1.9rem;color:var(--copper);line-height:1}
+.steps li::after{content:"";position:absolute;left:1.15rem;top:2.4rem;bottom:.4rem;width:2px;background:var(--line)}
+.steps li:last-child{padding-bottom:0}
+.steps li:last-child::after{display:none}
+.steps h3{margin-bottom:.3rem}
+.steps p{margin:0;color:var(--muted)}
+.steps .time{display:inline-block;font-size:.85rem;font-weight:600;background:var(--stone);padding:.15rem .55rem;margin-bottom:.5rem;border-radius:2px}
+
+/* Storm */
+.storm{background:var(--slate);color:var(--stone);padding:clamp(4rem,8vw,7rem) 0}
+.storm h2{color:#fff;max-width:18ch}
+.storm-lede{max-width:60ch;color:#CFCAC3;font-size:1.1rem}
+.storm-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(0,3fr);gap:clamp(1.5rem,3vw,3rem);margin-top:3rem}
+.storm h3{color:#fff;font-size:1.2rem;padding-bottom:.8rem;border-bottom:2px solid var(--copper)}
+.storm ol,.storm ul{margin:0;padding:0;list-style:none}
+.storm ol{counter-reset:d}
+.storm ol li{counter-increment:d;padding:.75rem 0 .75rem 2.2rem;position:relative;border-bottom:1px solid var(--slate-3)}
+.storm ol li::before{content:counter(d);position:absolute;left:0;top:.75rem;font-family:var(--head);font-weight:800;color:var(--copper-lt)}
+.storm ul li{padding:.75rem 0 .75rem 1.9rem;position:relative;border-bottom:1px solid var(--slate-3)}
+.storm ul li svg{position:absolute;left:0;top:1.05rem;width:16px;height:16px}
+.storm li strong{color:#fff}
+.emergency{background:var(--slate-2);padding:1.6rem;border-left:4px solid var(--copper);align-self:start}
+.emergency p{font-size:.96rem;color:#CFCAC3}
+.emergency .big{display:block;font-family:var(--head);font-weight:800;font-size:1.6rem;color:#fff;text-decoration:none;margin:.3rem 0 .8rem}
+.emergency .big:hover{color:var(--copper-lt)}
+.honest{margin-top:2.5rem;font-size:.95rem;color:#BDB8B1;max-width:75ch}
+
+/* Warranty */
+.warranty{background:var(--stone);padding:clamp(4rem,8vw,7rem) 0}
+.war-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(2rem,5vw,5rem)}
+.war-grid>div>p{color:var(--muted)}
+table{width:100%;border-collapse:collapse;background:var(--paper);font-size:.98rem}
+caption{text-align:left;font-weight:600;font-size:.9rem;color:var(--muted);padding-bottom:.6rem}
+th,td{text-align:left;padding:1rem 1.1rem;vertical-align:top;border-bottom:1px solid var(--line)}
+thead th{background:var(--slate);color:#fff;font-family:var(--head);font-weight:700;font-size:.95rem}
+tbody th{font-family:var(--head);font-weight:700;width:30%}
+td.len{font-family:var(--head);font-weight:800;white-space:nowrap}
+.creds{margin-top:2rem;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.creds div{background:var(--stone);padding:1.1rem 1.2rem;font-size:.93rem}
+.creds strong{display:block;font-family:var(--head);font-size:1.05rem}
+
+/* FAQ */
+.faq{padding:clamp(4rem,8vw,7rem) 0}
+.faq .wrap{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(2rem,5vw,5rem)}
+.faq-side{align-self:start;position:sticky;top:100px}
+.faq-side p{color:var(--muted)}
+details{border-bottom:1px solid var(--line)}
+details:first-of-type{border-top:2px solid var(--slate)}
+summary{list-style:none;cursor:pointer;padding:1.3rem 2.5rem 1.3rem 0;position:relative;font-family:var(--head);font-weight:700;font-size:1.15rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:.4rem;top:50%;width:12px;height:12px;border-right:2.5px solid var(--copper-ink);border-bottom:2.5px solid var(--copper-ink);transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+details[open] summary::after{transform:translateY(-20%) rotate(-135deg)}
+summary:hover{color:var(--copper-ink)}
+details .ans{padding:0 0 1.4rem;max-width:66ch;color:var(--muted)}
+details .ans p:last-child{margin:0}
+
+/* Contact */
+.contact{background:var(--stone);padding:clamp(4rem,8vw,7rem) 0}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,5vw,5rem)}
+.contact-info p{color:var(--muted)}
+.contact-info dl{margin:2rem 0 0}
+.contact-info dt{font-family:var(--head);font-weight:700;margin-top:1.2rem}
+.contact-info dd{margin:.2rem 0 0;color:var(--muted)}
+.contact-info dd a{font-family:var(--head);font-weight:800;font-size:1.5rem;color:var(--ink);text-decoration:none}
+.contact-info dd a:hover{color:var(--copper-ink)}
+.form-card{background:var(--paper);padding:clamp(1.5rem,3.5vw,2.75rem);border-top:5px solid var(--copper)}
+.form-card h3{font-size:1.5rem}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 1.2rem;margin-top:1.4rem}
+.field{display:flex;flex-direction:column;gap:.35rem}
+.field.full{grid-column:1/-1}
+label{font-weight:600;font-size:.95rem}
+label .opt{font-weight:400;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:#fff;border:1.5px solid #8C867E;border-radius:3px;padding:.75rem .85rem;width:100%}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--copper-lt);outline-offset:1px;border-color:var(--slate)}
+[aria-invalid="true"]{border-color:#A3261B;background:#FFF8F6}
+.err{color:#A3261B;font-size:.88rem;font-weight:600;min-height:0}
+.err:empty{display:none}
+.form-foot{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;margin-top:1.6rem}
+.form-foot p{margin:0;font-size:.88rem;color:var(--muted);flex:1 1 220px}
+.thanks{display:none}
+.thanks.show{display:block}
+.thanks h3{font-size:1.6rem}
+.thanks svg{width:44px;height:44px;margin-bottom:1rem}
+
+/* Footer */
+.site-foot{background:var(--slate);color:#CFCAC3;padding:4rem 0 2rem;font-size:.96rem}
+.foot-grid{display:grid;grid-template-columns:minmax(0,5fr) repeat(3,minmax(0,3fr));gap:2rem}
+.site-foot h2{font-size:1rem;color:#fff;font-weight:700;letter-spacing:0;margin-bottom:.8rem}
+.site-foot a{color:var(--copper-lt)}
+.site-foot a:hover{color:#fff}
+.site-foot address{font-style:normal}
+.hours{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.2rem 1rem}
+.hours dt{color:#fff}.hours dd{margin:0}
+.foot-logo{font-family:var(--head);font-weight:800;font-size:1.5rem;color:#fff;margin-bottom:.6rem}
+.foot-base{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--slate-3);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem;font-size:.88rem;color:#A9A49D}
+
+/* Responsive */
+@media (max-width:1080px){
+  .nav ul{gap:1.1rem}.head-phone{display:none}
+  .storm-grid{grid-template-columns:1fr 1fr}
+  .emergency{grid-column:1/-1}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  .menu-btn{display:inline-flex}
+  .head-cta .btn{display:none}
+  .head-phone{display:inline}
+  .nav{position:absolute;top:68px;left:0;right:0;background:var(--slate);border-bottom:1px solid var(--slate-3);display:none}
+  .nav.open{display:block}
+  .nav ul{flex-direction:column;gap:0;padding:.5rem var(--pad) 1.2rem}
+  .nav a{display:block;padding:.9rem 0;border-bottom:1px solid var(--slate-3);font-size:1.1rem}
+  .nav .mob-cta{display:block;border:0;margin-top:1rem}
+  .nav .mob-cta a{display:inline-flex;border:0;padding:.95rem 1.4rem;color:#fff}
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-img{order:-1;aspect-ratio:16/10;min-height:0}
+  .hero-copy{padding:2.5rem var(--pad) 3rem}
+  .owner .wrap,.mat-head,.mat-grid,.war-grid,.faq .wrap,.contact .wrap{grid-template-columns:1fr}
+  .mat-photo img{min-height:0;aspect-ratio:16/9}
+  .process{grid-template-columns:1fr}
+  .process-img img{position:static;height:auto;aspect-ratio:16/9}
+  .process-copy{padding:3.5rem var(--pad)}
+  .faq-side{position:static}
+}
+@media (max-width:640px){
+  body{font-size:1rem}
+  .logo{font-size:1.05rem}
+  .head-phone{font-size:.95rem}
+  .hero-facts{grid-template-columns:1fr 1fr}
+  .hero-actions .btn{flex:1 1 100%;justify-content:center}
+  .offer .wrap{flex-direction:column;align-items:flex-start}
+  .mat-item{grid-template-columns:1fr}
+  .price{text-align:left}
+  .steps li{padding-left:3.6rem}
+  .storm-grid{grid-template-columns:1fr}
+  .creds{grid-template-columns:1fr}
+  .fields{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  thead{position:absolute;left:-9999px}
+  table,tbody,tr,th,td{display:block;width:100%}
+  tr{border-bottom:2px solid var(--line)}
+  tbody th{width:100%;background:var(--slate);color:#fff;border:0}
+  td{border:0;padding:.5rem 1.1rem}
+  td::before{content:attr(data-label);display:block;font-size:.8rem;font-weight:700;color:var(--muted)}
+  td.len{padding-bottom:1rem}
+}
+@media (max-width:400px){.head-phone{display:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="logo" href="#top" aria-label="Halden Roofing Co., back to top">
+      <svg viewBox="0 0 34 26" aria-hidden="true"><path d="M2 14 17 2.5 32 14" fill="none" stroke="#B5652B" stroke-width="3.2" stroke-linejoin="miter"/><path d="M7 13v11h20V13" fill="none" stroke="#E9E6E1" stroke-width="2.4"/><path d="M14.5 24v-6h5v6" fill="none" stroke="#E9E6E1" stroke-width="2"/></svg>
+      <span data-biz>Halden Roofing Co.</span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#materials">Roofs &amp; Pricing</a></li>
+        <li><a href="#process">What to Expect</a></li>
+        <li><a href="#storm">Storm Damage</a></li>
+        <li><a href="#warranty">Warranty</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li class="mob-cta"><a class="btn btn-copper" href="#inspection">Book a free inspection</a></li>
+      </ul>
+    </nav>
+    <div class="head-cta">
+      <a class="head-phone" href="tel:+17045550117">(704) 555-0117</a>
+      <a class="btn btn-copper" href="#inspection">Free inspection</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="bars" aria-hidden="true"></span>Menu</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-h">
+    <div class="hero-copy">
+      <h1 id="hero-h"><span class="rule" aria-hidden="true"></span>A roof done right, explained plainly.</h1>
+      <p class="hero-lede">Residential roof replacement, metal roofing and repairs across <span data-city>Charlotte</span>. Owner-led crews, written line-item estimates, and a 10-year workmanship warranty in writing.</p>
+      <div class="hero-actions">
+        <a class="btn btn-copper" href="#inspection">Book a free roof inspection</a>
+        <a class="btn btn-ghost" href="tel:+17045550117">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
+          (704) 555-0117</a>
+      </div>
+      <ul class="hero-facts">
+        <li><strong>$0</strong>Inspection &amp; photo report</li>
+        <li><strong>48 hrs</strong>To your written estimate</li>
+        <li><strong>10 yrs</strong>Workmanship warranty</li>
+      </ul>
+    </div>
+    <div class="hero-img">
+      <img src="img/1.jpg" alt="Newly installed dark charcoal architectural shingle roof on a two-story craftsman home, with blue sky and green trees behind it" width="1600" height="900">
+    </div>
+  </section>
+
+  <aside class="offer" aria-label="Opening offer">
+    <div class="wrap">
+      <p><strong>Opening offer:</strong> our first 50 full-replacement customers in <span data-city>Charlotte</span> get $500 off and a free ridge-vent upgrade.</p>
+      <a href="#inspection">Claim it with a free inspection &rarr;</a>
+    </div>
+  </aside>
+
+  <section class="owner" aria-labelledby="owner-h">
+    <div class="wrap">
+      <div>
+        <h2 id="owner-h">We're new. Here's why that works in your favor.</h2>
+        <div class="note">
+          <p>I opened <span data-biz>Halden Roofing Co.</span> because I got tired of watching homeowners get handed a one-line estimate, a pushy salesman and a crew they never met. Every roof we take on right now, I inspect myself and I'm on site the day it goes on.</p>
+          <p>We don't have a wall of reviews yet, so we earn it the slow way: I'll get on your roof, take photos of everything I find, and tell you honestly if a repair will buy you five more years instead of a full replacement. If you're not ready, that's fine. The report is yours to keep.</p>
+        </div>
+        <p class="sig">Marcus Halden<span>Owner, <span data-biz>Halden Roofing Co.</span></span></p>
+      </div>
+      <div class="basics">
+        <h3>The basics, up front</h3>
+        <ul>
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5 6 12l8-9" fill="none" stroke="#95501F" stroke-width="2.4"/></svg>Licensed North Carolina contractor; license number on every estimate</li>
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5 6 12l8-9" fill="none" stroke="#95501F" stroke-width="2.4"/></svg>$2M general liability and full workers' comp, with certificates sent before work starts</li>
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5 6 12l8-9" fill="none" stroke="#95501F" stroke-width="2.4"/></svg>Our own crew, no subcontracted day labor</li>
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5 6 12l8-9" fill="none" stroke="#95501F" stroke-width="2.4"/></svg>No deposit over 30%, and nothing due until materials are delivered</li>
+          <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5 6 12l8-9" fill="none" stroke="#95501F" stroke-width="2.4"/></svg>Pulled permits and city inspection where required</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="materials" id="materials" aria-labelledby="mat-h">
+    <div class="wrap">
+      <div class="mat-head">
+        <h2 id="mat-h">What we install, and what it typically costs</h2>
+        <p>Real ranges for a typical <span data-city>Charlotte</span> two-story home (about 22 squares, or 2,200 sq ft of roof). Your written estimate will be exact, line by line, after we've measured.</p>
+      </div>
+      <div class="mat-grid">
+        <figure class="mat-photo">
+          <img src="img/3.jpg" alt="Close-up of copper step flashing where new dark shingles meet a red brick chimney" width="1600" height="900" loading="lazy">
+          <figcaption>Hand-bent copper flashing at a chimney. Where most leaks start, and where we slow down.</figcaption>
+        </figure>
+        <ul class="mat-list">
+          <li class="mat-item">
+            <h3>Architectural shingle replacement</h3>
+            <div class="price">$10,500&ndash;$15,800<small>typical 22-square home</small></div>
+            <p>Full tear-off to the deck, replace soft or rotted decking, synthetic underlayment, ice-and-water shield in valleys and around penetrations, new drip edge, pipe boots and ridge vent. Lifetime-rated dimensional shingles in your choice of color.</p>
+            <dl class="specs"><div><dt>Install time</dt><dd>1&ndash;2 days</dd></div><div><dt>Lifespan</dt><dd>25&ndash;30 years</dd></div><div><dt>Decking</dt><dd>$95 per sheet if needed</dd></div></dl>
+          </li>
+          <li class="mat-item">
+            <h3>Standing-seam metal roofing</h3>
+            <div class="price">$26,000&ndash;$38,000<small>typical 22-square home</small></div>
+            <p>24-gauge concealed-fastener panels with a Kynar painted finish, high-temperature underlayment, and custom-bent trim. Quiet, handles our summer heat well, and sheds pine debris and storms better than anything else we install.</p>
+            <dl class="specs"><div><dt>Install time</dt><dd>4&ndash;7 days</dd></div><div><dt>Lifespan</dt><dd>40&ndash;60 years</dd></div><div><dt>Also for</dt><dd>porches &amp; low-slope accents</dd></div></dl>
+          </li>
+          <li class="mat-item">
+            <h3>Roof repairs &amp; leak tracing</h3>
+            <div class="price">From $375<small>most repairs $375&ndash;$1,400</small></div>
+            <p>Missing or lifted shingles, cracked pipe boots, failed chimney and wall flashing, skylight leaks, and valley repairs. We find the actual source, not just the stain on your ceiling, and send photos before and after.</p>
+            <dl class="specs"><div><dt>Pipe boot</dt><dd>$375</dd></div><div><dt>Chimney reflash</dt><dd>$650&ndash;$1,200</dd></div><div><dt>Warranty</dt><dd>2 years</dd></div></dl>
+          </li>
+        </ul>
+      </div>
+      <p class="mat-note">Ranges include tear-off, disposal, permit and cleanup. Steep pitches (over 9/12), multiple layers or heavy decking repair will add cost, and we'll show you exactly where.</p>
+    </div>
+  </section>
+
+  <section class="process" id="process" aria-labelledby="proc-h">
+    <div class="process-img">
+      <img src="img/2.jpg" alt="Two roofers in safety harnesses installing shingles on a pitched roof, one holding a nail gun" width="1600" height="900" loading="lazy">
+    </div>
+    <div class="process-copy">
+      <h2 id="proc-h">What to expect, start to finish</h2>
+      <p>No sales pitch at the kitchen table. Four steps, and you'll know who's coming and when at every one.</p>
+      <ol class="steps">
+        <li><span class="time">45&ndash;60 minutes</span><h3>Free inspection</h3><p>Marcus walks the roof, checks the attic for ventilation and moisture, and photographs everything: shingles, flashing, boots, gutters, decking soft spots.</p></li>
+        <li><span class="time">Within 48 hours</span><h3>Written photo report &amp; estimate</h3><p>You get a PDF with annotated photos and a line-item estimate. If a repair makes more sense than a replacement, it says so. The quote holds for 30 days.</p></li>
+        <li><span class="time">Usually 1&ndash;2 days</span><h3>Install day</h3><p>We tarp landscaping, protect your siding and AC unit, tear off to the deck, and finish the same day where possible. Magnet sweeps for nails, twice.</p></li>
+        <li><span class="time">Before final payment</span><h3>Walkthrough &amp; warranty</h3><p>We walk the job with you, send completion photos, register the manufacturer warranty in your name, and hand over our 10-year workmanship warranty in writing.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="storm" id="storm" aria-labelledby="storm-h">
+    <div class="wrap">
+      <h2 id="storm-h">Hail or wind come through? Here's what to do first.</h2>
+      <p class="storm-lede">Spring hail and late-summer storms are part of life in <span data-city>Charlotte</span>. If you think your roof took a hit, a calm, documented approach gets claims paid. We help with the paperwork and the adjuster meeting at no charge.</p>
+      <div class="storm-grid">
+        <div>
+          <h3>Your first 48 hours</h3>
+          <ol>
+            <li><strong>Stay off the roof.</strong> Wet shingles are slick, and damage is easier to spot from a ladder with the right eye.</li>
+            <li><strong>Photograph from the ground:</strong> dented gutters, downspouts, AC fins and shingle granules in the gutters.</li>
+            <li><strong>Stop active leaks</strong> with a bucket and towels. Call us for an emergency tarp.</li>
+            <li><strong>Call your insurer</strong> to open a claim and write down the claim number.</li>
+          </ol>
+        </div>
+        <div>
+          <h3>What we do for you</h3>
+          <ul>
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5 6 12l8-9" fill="none" stroke="#DB8F57" stroke-width="2.4"/></svg>Emergency tarping, usually within 24 hours ($295&ndash;$650, often reimbursed by your policy)</li>
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5 6 12l8-9" fill="none" stroke="#DB8F57" stroke-width="2.4"/></svg>A dated damage report with test-square photos your adjuster can use</li>
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5 6 12l8-9" fill="none" stroke="#DB8F57" stroke-width="2.4"/></svg>Meet your adjuster on the roof so nothing gets missed</li>
+            <li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8.5 6 12l8-9" fill="none" stroke="#DB8F57" stroke-width="2.4"/></svg>Review the insurance scope line by line and flag missing items such as drip edge, code upgrades and decking</li>
+          </ul>
+        </div>
+        <div class="emergency">
+          <h3>Leaking right now?</h3>
+          <p>Call or text. Marcus answers storm calls 7 days a week.</p>
+          <a class="big" href="tel:+17045550117">(704) 555-0117</a>
+          <p>Or <a href="#inspection" style="color:#DB8F57">request a storm inspection</a>.</p>
+        </div>
+      </div>
+      <p class="honest">Straight talk: we're roofers, not public adjusters, and we won't ask you to sign a contract before your claim is decided. We'll never offer to "cover" or waive your deductible. It's insurance fraud, and a contractor willing to do it will cut other corners too.</p>
+    </div>
+  </section>
+
+  <section class="warranty" id="warranty" aria-labelledby="war-h">
+    <div class="wrap war-grid">
+      <div>
+        <h2 id="war-h">Warranties you can actually read</h2>
+        <p>Two layers of protection on every replacement: the manufacturer covers the materials, and we cover the installation. Both are written, both are registered in your name, and our workmanship warranty transfers once if you sell.</p>
+        <p>If something we installed fails, call us. We come back, we fix it, and you don't pay for it.</p>
+      </div>
+      <div>
+        <table>
+          <caption>Coverage by job type</caption>
+          <thead><tr><th scope="col">Coverage</th><th scope="col">What it covers</th><th scope="col">Length</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Halden workmanship</th><td data-label="What it covers">Leaks or failures caused by our installation: flashing, fastening, boots, ventilation. Labor and materials to fix.</td><td class="len" data-label="Length">10 years</td></tr>
+            <tr><th scope="row">Shingle manufacturer</th><td data-label="What it covers">Manufacturing defects in shingles and accessories, per the manufacturer's terms. Wind rating up to 130 mph with proper install.</td><td class="len" data-label="Length">Limited lifetime</td></tr>
+            <tr><th scope="row">Metal panel finish</th><td data-label="What it covers">Kynar paint finish against chalking, fading and peeling beyond stated limits.</td><td class="len" data-label="Length">40 years</td></tr>
+            <tr><th scope="row">Repairs</th><td data-label="What it covers">The specific area we repaired, labor and materials.</td><td class="len" data-label="Length">2 years</td></tr>
+          </tbody>
+        </table>
+        <div class="creds">
+          <div><strong>NC licensed</strong>License number printed on every estimate and contract</div>
+          <div><strong>Fully insured</strong>$2M liability plus workers' comp, certificates on request</div>
+          <div><strong>Permitted</strong>Permits pulled with the county and inspections passed where required</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="faq-side">
+        <h2 id="faq-h">Questions people ask us</h2>
+        <p>Don't see yours? Call <a href="tel:+17045550117">(704) 555-0117</a>. You'll get Marcus, not a call center.</p>
+      </div>
+      <div>
+        <details>
+          <summary>Is the inspection really free? What's the catch?</summary>
+          <div class="ans"><p>It's free, with no obligation and no follow-up calls unless you ask for them. It's how a new company earns work: you see how we operate before you spend a dollar. You keep the photo report either way.</p></div>
+        </details>
+        <details>
+          <summary>How do I know if I need a repair or a full replacement?</summary>
+          <div class="ans"><p>Age matters. Most 3-tab roofs in our climate are near the end at 15 to 20 years. But it's mostly about what we find: widespread granule loss, brittle or curling shingles, and soft decking point to replacement. A single leak at a pipe boot or chimney is usually a repair. We'll tell you which, with photos.</p></div>
+        </details>
+        <details>
+          <summary>You're a brand-new company. Why should I trust you with my roof?</summary>
+          <div class="ans"><p>Fair question. We can't point to years of history, so we lean on things you can verify: a state license, insurance certificates sent to you directly, permits on file, a deposit capped at 30%, and a written workmanship warranty. Ask for any of it before you sign.</p></div>
+        </details>
+        <details>
+          <summary>Do I need to be home on install day?</summary>
+          <div class="ans"><p>Not for the whole day. We'd like to see you at the start to confirm colors and access, and at the end for the walkthrough. Please move cars out of the driveway and take anything fragile off interior walls. Hammering can shake pictures loose.</p></div>
+        </details>
+        <details>
+          <summary>How long does a roof replacement take, and what about rain?</summary>
+          <div class="ans"><p>Most shingle roofs take one to two days; metal takes four to seven. We watch the forecast closely and only open up what we can dry-in the same day. If weather moves the date, we call you the evening before.</p></div>
+        </details>
+        <details>
+          <summary>Do you offer financing?</summary>
+          <div class="ans"><p>Yes, through a third-party lender, with options including 12 months same-as-cash for approved buyers. We'll go over terms in person. There's no pressure to use it, and it never changes your price.</p></div>
+        </details>
+        <details>
+          <summary>What areas do you serve?</summary>
+          <div class="ans"><p>Homes within about 30 miles of <span data-city>Charlotte</span>, including Matthews, Mint Hill, Huntersville, Cornelius, Pineville, Concord and Mooresville. Further out? Call and ask.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="inspection" aria-labelledby="ins-h">
+    <div class="wrap">
+      <div class="contact-info">
+        <h2 id="ins-h">Book your free roof inspection</h2>
+        <p>Tell us a little about your home. Marcus will call within one business day to set a time that works for you, often the same week.</p>
+        <dl>
+          <dt>Call or text</dt><dd><a href="tel:+17045550117">(704) 555-0117</a></dd>
+          <dt>Office hours</dt><dd>Mon&ndash;Fri 7:00am&ndash;6:00pm, Sat 8:00am&ndash;1:00pm</dd>
+          <dt>Storm &amp; leak calls</dt><dd>7 days a week</dd>
+          <dt>Service area</dt><dd>Within about 30 miles of <span data-city>Charlotte</span></dd>
+        </dl>
+      </div>
+      <div class="form-card">
+        <form id="ins-form" novalidate>
+          <h3>Request an inspection</h3>
+          <div class="fields">
+            <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required aria-describedby="e-name"><span class="err" id="e-name"></span></div>
+            <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required aria-describedby="e-phone"><span class="err" id="e-phone"></span></div>
+            <div class="field full"><label for="f-address">Property address</label><input id="f-address" name="address" autocomplete="street-address" required aria-describedby="e-address"><span class="err" id="e-address"></span></div>
+            <div class="field"><label for="f-email">Email <span class="opt">(optional, for your report)</span></label><input id="f-email" name="email" type="email" autocomplete="email" aria-describedby="e-email"><span class="err" id="e-email"></span></div>
+            <div class="field"><label for="f-need">What's going on?</label>
+              <select id="f-need" name="need" required aria-describedby="e-need">
+                <option value="">Choose one</option>
+                <option>Active leak</option>
+                <option>Storm or hail damage</option>
+                <option>Roof is getting old</option>
+                <option>Buying or selling a home</option>
+                <option>Interested in metal roofing</option>
+                <option>Something else</option>
+              </select><span class="err" id="e-need"></span></div>
+            <div class="field full"><label for="f-notes">Anything else? <span class="opt">(optional)</span></label><textarea id="f-notes" name="notes" placeholder="Roof age, where you see stains, best times to reach you"></textarea></div>
+          </div>
+          <div class="form-foot">
+            <button class="btn btn-copper" type="submit">Request my free inspection</button>
+            <p>We only use your details to schedule your inspection. No mailing lists.</p>
+          </div>
+        </form>
+        <div class="thanks" id="thanks" tabindex="-1" role="status">
+          <svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="none" stroke="#B5652B" stroke-width="3"/><path d="M13 22.5 19.5 29 31 16" fill="none" stroke="#95501F" stroke-width="3.5"/></svg>
+          <h3>Thanks, <span id="t-name">neighbor</span>. You're on the list.</h3>
+          <p>Marcus will call you within one business day to schedule your inspection. If water is coming in right now, don't wait. Call <a href="tel:+17045550117">(704) 555-0117</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <p class="foot-logo"><span data-biz>Halden Roofing Co.</span></p>
+        <p>Residential roof replacement, metal roofing and repairs. Owner-led, licensed and insured.</p>
+      </div>
+      <div>
+        <h2>Office</h2>
+        <address>
+          <span data-biz>Halden Roofing Co.</span><br>
+          South End, <span data-city>Charlotte</span>, NC 28203<br>
+          Inspections by appointment
+        </address>
+      </div>
+      <div>
+        <h2>Hours</h2>
+        <dl class="hours"><dt>Mon&ndash;Fri</dt><dd>7am&ndash;6pm</dd><dt>Sat</dt><dd>8am&ndash;1pm</dd><dt>Sun</dt><dd>Storm calls only</dd></dl>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <p><a href="tel:+17045550117">(704) 555-0117</a><br>Call or text</p>
+        <p><a href="#inspection">Book a free inspection</a></p>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>&copy; <span id="yr">2025</span> <span data-biz>Halden Roofing Co.</span> &middot; <span data-city>Charlotte</span>, NC</p>
+      <p>Website by <a href="../../index.html" target="_top">Renaissance Studio</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  // Prospect preview: ?name=...&city=...
+  let q = new URLSearchParams(location.search), n = q.get('name'), c = q.get('city'); if(c){c=c.replace(/,\s*[A-Za-z]{2}$/,'').trim();}
+  if (n) document.querySelectorAll('[data-biz]').forEach(e => e.textContent = n);
+  if (c) document.querySelectorAll('[data-city]').forEach(e => e.textContent = c);
+  if (n || c) document.title = `${n || 'Halden Roofing Co.'} | Residential Roofing in ${c || 'Charlotte'}`;
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Mobile menu
+  const btn = document.querySelector('.menu-btn'), nav = document.getElementById('site-nav');
+  const setMenu = open => { btn.setAttribute('aria-expanded', open); nav.classList.toggle('open', open); };
+  btn.addEventListener('click', () => setMenu(btn.getAttribute('aria-expanded') !== 'true'));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); btn.focus(); } });
+  matchMedia('(min-width:901px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+
+  // Form validation + inline thank-you
+  const form = document.getElementById('ins-form');
+  const checks = {
+    name: v => v.trim().length > 1 || 'Please enter your name.',
+    phone: v => v.replace(/\D/g, '').length >= 10 || 'Please enter a 10-digit phone number.',
+    address: v => v.trim().length > 4 || 'Please enter the property address.',
+    email: v => !v || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) || 'That email doesn\u2019t look right.',
+    need: v => !!v || 'Please choose what\u2019s going on.'
+  };
+  const validate = el => {
+    const r = checks[el.name](el.value), err = document.getElementById('e-' + el.name);
+    const ok = r === true;
+    el.setAttribute('aria-invalid', !ok);
+    err.textContent = ok ? '' : r;
+    return ok;
+  };
+  Object.keys(checks).forEach(k => form.elements[k].addEventListener('blur', e => { if (e.target.value || e.target.getAttribute('aria-invalid')) validate(e.target); }));
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const bad = Object.keys(checks).map(k => form.elements[k]).filter(el => !validate(el));
+    if (bad.length) { bad[0].focus(); return; }
+    document.getElementById('t-name').textContent = form.elements.name.value.trim().split(' ')[0];
+    form.hidden = true;
+    const t = document.getElementById('thanks');
+    t.classList.add('show'); t.focus();
+  });
+})();
+</script>
+</body>
+</html>

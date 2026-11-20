@@ -1,184 +1,48 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<meta name="referrer" content="no-referrer">
-<link rel="icon" href="/brand/mark.svg" type="image/svg+xml">
-<title>Finish Your Website | Renaissance Studio</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap">
-<style>
-/* Layout: a single client-facing form column; numbered section cards in the order the client fills them. */
-:root{
-  --bg:#f3f5f9; --paper:#ffffff; --ink:#141a24; --muted:#5c6575; --line:#d8dee8;
-  --accent:#2457c5; --accent-ink:#ffffff; --accent-soft:#e4ecfb; --note:#fff7e6; --note-ink:#7a4d0b;
-  --display:"DM Serif Display",Georgia,serif; --body:"Inter",system-ui,sans-serif;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0f131a; --paper:#161c26; --ink:#e6ebf3; --muted:#9aa4b5; --line:#283140;
-  --accent:#8db0ff; --accent-ink:#0f131a; --accent-soft:#1b2741; --note:#2e2412; --note-ink:#f2c879; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0f131a; --paper:#161c26; --ink:#e6ebf3; --muted:#9aa4b5; --line:#283140;
-  --accent:#8db0ff; --accent-ink:#0f131a; --accent-soft:#1b2741; --note:#2e2412; --note-ink:#f2c879; color-scheme:dark}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
-.wrap{max-width:720px;margin:0 auto;padding-block:32px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:18px}
-.brand{font-family:var(--display);font-size:20px;letter-spacing:.01em}
-.preview{background:var(--note);color:var(--note-ink);border-radius:8px;padding:10px 14px;font-size:13px}
-.order{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px 24px;display:flex;flex-direction:column;gap:8px}
-h1{font-family:var(--display);font-weight:400;font-size:clamp(28px,6vw,38px);line-height:1.1;margin:0;text-wrap:balance}
-.paid{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;color:var(--muted)}
-.paid b{color:var(--accent)}
-.lede{margin:0;color:var(--muted);max-width:60ch}
-form{display:flex;flex-direction:column;gap:18px}
-fieldset{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px 24px;display:flex;flex-direction:column;gap:16px;min-width:0}
-legend{float:left;width:100%;padding:0;display:flex;align-items:center;gap:12px;font-family:var(--display);font-size:22px}
-legend .n{flex:none;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font:600 14px/30px var(--body);text-align:center}
-.hint{margin:-6px 0 0;font-size:13px;color:var(--muted)}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.f{display:flex;flex-direction:column;gap:6px;min-width:0}
-label{font-weight:600;font-size:14px}
-.opt{font-weight:400;color:var(--muted);font-size:12px;margin-left:6px}
-input[type=text],input[type=email],input[type=tel],input[type=url],textarea,select{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:11px 13px;width:100%;box-sizing:border-box}
-textarea{min-height:110px;resize:vertical}
-input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
-.drop{border:1.5px dashed var(--line);border-radius:10px;padding:18px;text-align:center;color:var(--muted);font-size:14px;background:var(--bg);display:flex;flex-direction:column;gap:6px;align-items:center}
-.drop input{font-size:13px;max-width:100%}
-.choices{display:flex;flex-direction:column;gap:10px}
-.choice{display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:start;border:1.5px solid var(--line);border-radius:10px;padding:14px 16px;cursor:pointer}
-.choice:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
-.choice input{margin-top:3px;accent-color:var(--accent)}
-.choice b{display:block}
-.choice span{font-size:13px;color:var(--muted)}
-.checks{display:flex;flex-wrap:wrap;gap:8px}
-.chk{display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;cursor:pointer}
-.chk:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
-.chk input{accent-color:var(--accent)}
-.steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
-.copy{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.copy code{font-family:ui-monospace,Menlo,monospace;background:var(--accent-soft);padding:4px 8px;border-radius:6px;font-size:13px;user-select:all}
-button{font:600 15px var(--body);border:0;border-radius:999px;padding:14px 26px;cursor:pointer;background:var(--accent);color:var(--accent-ink)}
-button.small{padding:6px 12px;font-size:12px;background:var(--accent-soft);color:var(--accent)}
-button:focus-visible{outline:3px solid var(--accent-soft);outline-offset:2px}
-button:disabled{opacity:.6;cursor:default}
-.terms{display:grid;grid-template-columns:20px 1fr;gap:12px;font-size:14px}
-.terms input{margin-top:3px;accent-color:var(--accent)}
-.submit{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
-.done{background:var(--accent-soft);color:var(--ink);border-radius:10px;padding:14px 16px;font-size:14px}
-@media (max-width:560px){.row{grid-template-columns:1fr}fieldset,.order{padding:18px}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
-</style>
-<style>body{margin:0}</style>
-</head>
-<body>
-<div class="wrap">
-  <div class="brand">Renaissance Studio</div>
-
-  <div class="order">
-    <h1>Let's finish your website</h1>
-    <div class="paid"><span><b>Payment received ✓</b></span><span id="orderref"></span></div>
-    <p class="lede">This takes about 10 minutes. Anything you skip, we keep as it is in your concept. Your site goes live within 24 hours of this form and your WordPress access. Questions? Email James, your project manager, at james@renaissancestudio.io.</p>
-  </div>
-
-  <form id="intake">
-    <fieldset>
-      <legend><span class="n">1</span>Your business</legend>
-      <div class="row">
-        <div class="f"><label for="biz">Business name</label><input id="biz" type="text" placeholder="e.g. Gulfside Wash Co"></div>
-        <div class="f"><label for="industry">Industry</label><select id="industry"><option>Auto repair / detailing</option><option>Bakery / Café</option><option>Barbershop / Hair salon</option><option>Childcare</option><option>Cleaning</option><option>Construction / Contractor</option><option>Consulting</option><option>Dental / Medical</option><option>Electrician</option><option>Event planning / Venue</option><option>Fitness / Yoga</option><option>Food truck / Catering</option><option>Handyman</option><option>Home care</option><option>HVAC</option><option>Insurance</option><option>Landscaping / Lawn care</option><option>Law firm</option><option>Marketing / Creative</option><option>Massage / Spa</option><option>Moving</option><option>Nail salon / Beauty</option><option>Painting</option><option>Pest control</option><option>Pet care</option><option>Photography</option><option>Plumbing</option><option>Pool service</option><option>Pressure washing</option><option>Real estate</option><option>Remodeling</option><option>Restaurant</option><option>Retail / Boutique</option><option>Roofing</option><option>Tax / Accounting</option><option>Towing / Trucking</option><option>Tree service</option><option>Tutoring</option><option>Other</option></select></div>
-      </div>
-      <div class="row">
-        <div class="f"><label for="phone">Phone</label><input id="phone" type="tel" placeholder="e.g. (239) 555-0148"></div>
-        <div class="f"><label for="email">Email for website messages</label><input id="email" type="email" placeholder="e.g. hello@gulfsidewashco.com"></div>
-      </div>
-      <div class="row">
-        <div class="f"><label for="area">Address or area you serve</label><input id="area" type="text" placeholder="e.g. Fort Myers and Cape Coral"></div>
-        <div class="f"><label for="hours">Hours</label><input id="hours" type="text" placeholder="e.g. Mon-Sat 7am-6pm"></div>
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend><span class="n">2</span>Tell us about it</legend>
-      <div class="f"><label for="describe">What do you do, and for who?</label>
-        <textarea id="describe" placeholder="e.g. Pressure washing for homes and small businesses: house soft washing, roofs, driveways, pool decks. Most customers are ho"></textarea></div>
-      <div class="f"><label for="unique">What makes you different?</label>
-        <textarea id="unique" style="min-height:80px" placeholder="e.g. We soft wash instead of blasting, so nothing gets damaged. Same-week appointments, photos before and after every job."></textarea></div>
-      <div class="f"><label for="else">Anything else for the site? <span class="opt">optional</span></label>
-        <textarea id="else" style="min-height:80px" placeholder="Prices, reviews, a launch offer, examples of your work, things to leave off..."></textarea></div>
-    </fieldset>
-
-    <fieldset>
-      <legend><span class="n">3</span>Files <span class="opt" style="font-family:var(--body)">optional</span></legend>
-      <div class="drop">Drop your logo, photos of your work, and any certificates or client logos<input id="files" type="file" accept="image/*,.pdf" multiple><span>Skip this and we keep the concept's photos and a clean text logo.</span></div>
-    </fieldset>
-
-    <fieldset>
-      <legend><span class="n">4</span>Links and changes</legend>
-      <div class="f"><label for="links">Your links <span class="opt">optional, one per line</span></label><textarea id="links" style="min-height:70px" placeholder="Facebook, Instagram, Google, Yelp, booking link..."></textarea></div>
-      <div class="f"><label for="changes">Changes to the concept</label>
-        <p class="hint" style="margin:0">Your one round of changes before launch, so list everything.</p>
-        <textarea id="changes" placeholder="e.g. Remove the Blog section. Headline: &quot;Fort Myers' pressure washing crew&quot;."></textarea></div>
-    </fieldset>
-
-    <fieldset>
-      <legend><span class="n">5</span>Where your site goes</legend>
-      <div class="choices">
-        <label class="choice"><input type="radio" name="where" id="w1" value="wp_new" checked><div><b>WordPress on our recommended host</b><span>Best for most: buy a WordPress plan with <a href="https://www.hostinger.com/wordpress-hosting" target="_blank" rel="noopener">Hostinger</a> (most plans include a free domain the first year), then add our user below.</span></div></label>
-        <label class="choice"><input type="radio" name="where" id="w2" value="wp_existing"><div><b>I already have WordPress</b><span>Add our user below.</span></div></label>
-        <label class="choice"><input type="radio" name="where" id="w3" value="files"><div><b>Send me the website files</b><span>For your own web host or web person.</span></div></label>
-        <label class="choice"><input type="radio" name="where" id="w4" value="builder"><div><b>Wix, Squarespace, Shopify or another builder</b><span>We can't publish there. Choose this for a full refund.</span></div></label>
-      </div>
-      <div id="access" class="f">
-        <label>Add us to your WordPress</label>
-        <p class="hint" style="margin:0">Users &gt; Add New &gt; email <span class="copy"><code id="ouremail">james@renaissancestudio.io</code><button type="button" class="small" id="copybtn">Copy</button></span> &gt; role Administrator. Never send us your password.</p>
-        <input id="wpurl" type="url" placeholder="e.g. https://gulfsidewashco.com/wp-admin" aria-label="Your WordPress login page">
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend><span class="n">6</span>Confirm</legend>
-      <label class="terms"><input id="agree" type="checkbox" required><span>One round of changes before launch, delivered as WordPress or website files, no support after launch. Live within 24 hours of this form and access.</span></label>
-      <div class="submit"><button type="submit" id="send">Send</button><div class="done" id="msg" hidden></div></div>
-    </fieldset>
-  </form>
-</div>
-
-<script>
-(function(){
-  var form=document.getElementById('intake'), access=document.getElementById('access');
-  function sync(){ access.hidden = document.getElementById('w3').checked || document.getElementById('w4').checked; }
-  form.addEventListener('change', sync); sync();
-  // Order service endpoint (studio-orders, POST multipart "json" + "files"). Empty = preview mode, nothing is sent.
-  var ORDER_API = 'https://studio-orders.157.245.91.169.sslip.io/intake';
-  var q = new URLSearchParams(location.search), session = q.get('session') || '';
-  if (session) document.getElementById('orderref').textContent = 'Order ' + session.slice(-8).toUpperCase();
-  var FAIL = 'Something went wrong. Please email james@renaissancestudio.io and we will sort it out.';
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var msg = document.getElementById('msg'), btn = document.getElementById('send'), data = {session: session};
-    form.querySelectorAll('input,textarea,select').forEach(function(el){
-      if (el.type === 'file') return;
-      if (el.type === 'radio') { if (el.checked) data[el.name] = el.value; return; }
-      data[el.id] = el.type === 'checkbox' ? el.checked : el.value;
-    });
-    var fd = new FormData(); fd.append('json', JSON.stringify(data));
-    var files = document.getElementById('files'); if (files) [].forEach.call(files.files, function(f){ fd.append('files', f); });
-    if (!ORDER_API) { msg.textContent = 'Thanks! James, our project manager, will email you within one business day to collect this.'; msg.hidden = false; return; }
-    if (!session) { msg.textContent = 'This page is missing your order number. Please use the link we sent you, or email james@renaissancestudio.io.'; msg.hidden = false; return; }
-    msg.textContent = 'Sending...'; msg.hidden = false; btn.disabled = true;
-    fetch(ORDER_API, {method: 'POST', body: fd}).then(function(r){
-      if (r.ok) { msg.textContent = "Got it! We're building your site now. It goes live within 24 hours."; return; }
-      btn.disabled = false;
-      msg.textContent = r.status === 413 ? 'Your files are too big to send in one go. Please send fewer or smaller photos, or email them to james@renaissancestudio.io.' : FAIL;
-    }).catch(function(){ btn.disabled = false; msg.textContent = FAIL; });
-  });
-  document.getElementById('copybtn').addEventListener('click', function(){
-    var t=document.getElementById('ouremail').textContent, b=this;
-    try{ navigator.clipboard.writeText(t).then(function(){ b.textContent='Copied'; }, function(){ sel(); }); }catch(err){ sel(); }
-    function sel(){ var r=document.createRange(); r.selectNodeContents(document.getElementById('ouremail')); var s=getSelection(); s.removeAllRanges(); s.addRange(r); }
-  });
-})();
-</script>
-
-</body>
-</html>
+<html lang="en"><head><base href="../"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f8fb"><meta name="robots" content="noindex">
+<title>Project intake | Renaissance Studio</title><link rel="stylesheet" href="assets/site.css"><script defer src="assets/site.js"></script><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png"><meta property="og:site_name" content="Renaissance Studio"><meta property="og:title" content="Project intake | Renaissance Studio"><meta property="og:image" content="https://renaissancestudio.io/assets/og.png"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><meta name="description" content="Renaissance Studio designs websites for brand-new businesses. Type your business name, see a live first direction, and get your full homepage concept free."><meta property="og:description" content="Renaissance Studio designs websites for brand-new businesses. Type your business name, see a live first direction, and get your full homepage concept free."></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap top-inner"><a class="brand" href="index.html" aria-label="Renaissance Studio home"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="7" y="5" width="7" height="30" fill="#2447D6"/><path d="M15.4 5h5.4a9 9 0 0 1 0 18h-5.4z" fill="#2447D6"/><path d="M17 24.4h7.6L33 35h-7.6z" fill="#FFB547"/></svg><span>Renaissance <span>Studio</span></span></a><button class="menu" type="button" data-menu aria-controls="primary-nav" aria-expanded="false">Menu</button><nav class="nav" id="primary-nav" aria-label="Primary"><a href="work.html">Work</a><a href="process.html">Process</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a><a class="btn primary" href="concept.html">Free concept <span aria-hidden="true">↗</span></a></nav></div></header>
+<main id="main"><section class="page-hero blueprint"><div class="wrap"><h1>Let's finish your website.</h1><p class="lede">About ten minutes. Use the details you want customers to see. Your draft stays in this browser; return to this exact link to pick up where you left off.</p></div></section>
+<section class="section"><div class="wrap narrow">
+<form class="wizard" data-intake method="post" enctype="multipart/form-data">
+<div class="progress"><span class="counter" data-count>Step 1 / 6</span><progress max="6" value="1" aria-label="Project intake progress"></progress></div>
+<section data-step><h2>The public details.</h2><p>Copy them the way they should appear on the page. Leave the phone blank if you don't publish one.</p>
+<label class="field">Business name<input name="business" required autocomplete="organization" maxlength="120"></label>
+<label class="field">Industry<select name="industry" required><option value="">Select an industry</option></select></label>
+<label class="field">Public phone <small>Optional</small><input type="tel" name="phone" autocomplete="tel" maxlength="40"></label>
+<label class="field">Email for site messages<input type="email" name="email" autocomplete="email" required maxlength="254"></label>
+<label class="field">Public address or service area<input name="serviceArea" maxlength="350" required placeholder="Street address, or the towns you serve"></label>
+<label class="field">Hours<textarea name="hours" maxlength="800" required placeholder="Include closed days, or write “by appointment.”"></textarea></label></section>
+<section data-step hidden><h2>The part only you know.</h2>
+<label class="field">What do you do, and for whom?<textarea name="story" maxlength="4000" required placeholder="Tell us what a customer usually needs when they first come to you."></textarea></label>
+<label class="field">What makes your business different?<textarea name="difference" maxlength="3000" required placeholder="One concrete detail beats a list of adjectives."></textarea></label>
+<label class="field">Anything else we should know? <small>Optional</small><textarea name="notes" maxlength="2500"></textarea></label></section>
+<section data-step hidden><h2>Give the page a face.</h2><p>Use images you own or have permission to publish. No logo yet? Skip it. No photos? We'll use ours. Smaller images fit more reliably in the browser draft.</p>
+<label class="field">Logo <small>One image, optional</small><input type="file" name="logo" accept="image/*"></label><div class="files" data-files="logo" aria-live="polite"></div>
+<label class="field">Photos <small>Choose one or more, optional</small><input type="file" name="photos" accept="image/*" multiple></label><div class="files" data-files="photos" aria-live="polite"></div></section>
+<section data-step hidden><h2>Links and redlines.</h2><p>What should stay from the concept? What should change? If it already feels right, leave these blank.</p>
+<label class="field">Social links <small>One URL per line, optional</small><textarea name="socialLinks" maxlength="2500" placeholder="Paste your public profile links"></textarea></label>
+<label class="field">Changes to the concept <small>Optional</small><textarea name="changes" maxlength="4000" placeholder="Mention colors, sections, copy and anything to remove."></textarea></label></section>
+<section data-step hidden><h2>Where it goes live.</h2><p>Choose your setup for the final build. Invitations are enough; never send account passwords.</p>
+<fieldset><legend>Delivery setup</legend>
+<label class="choice"><input type="radio" name="hosting" value="hostinger" required>Hostinger, new or existing account</label>
+<label class="choice"><input type="radio" name="hosting" value="other">Another WordPress-compatible host</label>
+<label class="choice"><input type="radio" name="hosting" value="wordpress">An existing WordPress installation</label>
+<label class="choice"><input type="radio" name="hosting" value="files">Files only, no publishing</label>
+</fieldset>
+<div class="instruction" data-instruction="hostinger" hidden><strong>Share access / Hostinger</strong><ol><li>Create or sign in to your own hosting account. Review the plan and renewal cost before buying.</li><li>Open Account Sharing and choose to grant access.</li><li>Invite <a data-email href="mailto:james@renaissancestudio.io">james@renaissancestudio.io</a> as a collaborator for this site and its domain setup. Keep billing and ownership with you.</li></ol></div>
+<div class="instruction" data-instruction="other" hidden><strong>Share access / hosting panel</strong><ol><li>Sign in and open Account Sharing or the equivalent team access settings.</li><li>Add <a data-email href="mailto:james@renaissancestudio.io">james@renaissancestudio.io</a> as a collaborator for the site's setup and domain connection.</li><li>If your panel uses different labels, email James with the host name. Don't include login details.</li></ol></div>
+<div class="instruction" data-instruction="wordpress" hidden><strong>Share access / WordPress</strong><ol><li>In your WordPress dashboard, open Users, then Add New User.</li><li>Create a separate Administrator user with <a data-email href="mailto:james@renaissancestudio.io">james@renaissancestudio.io</a> as the email.</li><li>Enable the new user notification and send the invitation. Never send your own password.</li></ol><label class="field">Your site address <small>Optional</small><input name="wpurl" type="url" inputmode="url" placeholder="https://yourbusiness.com" maxlength="300"></label></div>
+<div class="instruction" data-instruction="files" hidden><strong>No access needed.</strong><p>We'll deliver the finished files. You'll handle hosting, installation and the domain connection.</p></div>
+</section>
+<section data-step hidden><h2>Check the build sheet.</h2><p>Read this as if it were going to print. Use Back to correct a detail before submitting.</p>
+<pre class="review" data-review aria-label="Your project details"></pre>
+<label class="check"><input type="checkbox" name="confirm" value="yes" required><span>I understand that the build includes up to two revision rounds before launch and is delivered on WordPress or as files, according to my choice.</span></label></section>
+<p class="error" data-error role="alert"></p><div class="actions"><button type="button" data-back hidden class="btn">Back</button><button type="button" data-next class="btn primary">Save and continue →</button><button type="submit" data-submit hidden class="btn primary">Confirm build sheet →</button></div></form>
+<section class="sheet stack" data-done hidden><span class="status">Intake complete</span><h2>Build sheet complete.</h2><p class="notice" hidden>Preview mode: the completed form is saved in this browser, not sent to the studio. No build has been ordered here.</p>
+<p>For a live order, we send the first version within 24 hours of receiving this form. Check the site on your phone and computer, then send your notes together. You have up to two revision rounds before launch.</p>
+<p>Need to correct an hour or a link? Email James at <a data-email href="mailto:james@renaissancestudio.io">james@renaissancestudio.io</a> with the business name.</p><div class="actions"><a class="btn" href="process.html">See the handover sequence →</a></div></section>
+</div></section></main>
+<footer class="foot"><div class="wrap"><div class="foot-main"><a class="brand" href="index.html"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="7" y="5" width="7" height="30" fill="#2447D6"/><path d="M15.4 5h5.4a9 9 0 0 1 0 18h-5.4z" fill="#2447D6"/><path d="M17 24.4h7.6L33 35h-7.6z" fill="#FFB547"/></svg><span>Renaissance <span>Studio</span></span></a><nav aria-label="Footer"><a href="work.html">Work</a><a href="process.html">Process</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a><a href="concept.html">Free concept</a></nav></div><div class="foot-base"><span>Made by Renaissance Studio / Serving new businesses across the US</span><a data-email href="mailto:james@renaissancestudio.io">james@renaissancestudio.io</a><nav aria-label="Legal"><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></nav></div></div></footer>
+<script>document.addEventListener('DOMContentLoaded',()=>{document.querySelector('[data-done] .notice').hidden=Boolean(CONFIG.INTAKE_ENDPOINT);});</script></body></html>

@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northline Heating &amp; Air | Furnace, AC &amp; Heat Pump Service in Denver</title>
+<meta name="description" content="Same-day furnace repair, AC installation, heat pumps and a $14/mo maintenance plan across metro Denver. Call (720) 555-0163.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#13294B; --navy-2:#0c1c35; --orange:#FF6B2C; --ice:#EEF3F8;
+    --ink:#13294B; --muted:#4a5a72; --line:#d5dfea; --white:#fff;
+    --wrap:1200px; --r:6px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:84px}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+  body{margin:0;font-family:Manrope,system-ui,sans-serif;font-weight:500;color:var(--ink);background:var(--white);line-height:1.6;font-size:1.0625rem;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  h1,h2,h3{font-weight:800;line-height:1.08;letter-spacing:-.025em;margin:0 0 .5em}
+  h1{font-size:clamp(2.4rem,5.6vw,4.4rem)}
+  h2{font-size:clamp(1.9rem,3.6vw,2.9rem)}
+  h3{font-size:1.3rem;letter-spacing:-.01em}
+  p{margin:0 0 1em}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(20px,4vw,40px)}
+  :focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:2px}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--navy);color:#fff;padding:10px 14px;z-index:100}
+  .skip:focus{left:8px}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;gap:10px;font:inherit;font-weight:800;font-size:1rem;text-decoration:none;padding:15px 22px;border-radius:var(--r);border:2px solid transparent;cursor:pointer;transition:transform .15s ease,background .15s}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-call{background:var(--orange);color:var(--navy)}
+  .btn-call:focus-visible{outline-color:var(--navy)}
+  .btn-ghost{border-color:var(--navy);color:var(--navy);background:transparent}
+  .btn-ghost:hover{background:var(--navy);color:#fff}
+  .btn-light{border-color:#fff;color:#fff}
+  .btn-light:hover{background:#fff;color:var(--navy)}
+  .btn svg{width:18px;height:18px;flex:none}
+
+  /* Header */
+  header.site{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);transition:box-shadow .2s}
+  header.site.scrolled{box-shadow:0 6px 20px -12px rgba(19,41,75,.35)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;letter-spacing:-.02em;font-size:1.08rem;line-height:1.1}
+  .logo svg{width:34px;height:34px;flex:none}
+  .logo small{display:block;font-weight:600;font-size:.72rem;color:var(--muted);letter-spacing:0}
+  nav.main ul{list-style:none;margin:0;padding:0;display:flex;gap:4px}
+  nav.main a{display:block;text-decoration:none;font-weight:600;font-size:.95rem;padding:8px 12px;border-radius:4px}
+  nav.main a:hover{background:var(--ice)}
+  .bar-call{display:flex;align-items:center;gap:12px}
+  .bar-call .btn{padding:11px 16px;font-size:.95rem}
+  .menu-btn{display:none;background:none;border:2px solid var(--navy);border-radius:var(--r);padding:8px 10px;font:inherit;font-weight:700;color:var(--navy);cursor:pointer;align-items:center;gap:8px}
+  .menu-btn span.l{display:block;width:18px;height:2px;background:var(--navy);position:relative}
+  .menu-btn span.l::before,.menu-btn span.l::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--navy)}
+  .menu-btn span.l::before{top:-6px}.menu-btn span.l::after{top:6px}
+  .menu-btn[aria-expanded="true"] span.l{background:transparent}
+  .menu-btn[aria-expanded="true"] span.l::before{top:0;transform:rotate(45deg)}
+  .menu-btn[aria-expanded="true"] span.l::after{top:0;transform:rotate(-45deg)}
+
+  @media (max-width:980px){
+    .menu-btn{display:inline-flex}
+    nav.main{position:absolute;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);display:none}
+    nav.main.open{display:block}
+    nav.main ul{flex-direction:column;padding:10px 20px 20px}
+    nav.main a{padding:14px 4px;border-bottom:1px solid var(--line);font-size:1.1rem;border-radius:0}
+    .bar-call .num{display:none}
+  }
+  @media (max-width:420px){.bar-call .btn{padding:10px 12px}.bar-call .btn .t{display:none}.logo small{display:none}}
+
+  /* Hero */
+  .hero{display:grid;grid-template-columns:1.05fr 1fr;min-height:calc(100vh - 72px);max-height:820px}
+  .hero-copy{padding:clamp(48px,7vw,96px) clamp(20px,5vw,64px) 48px max(clamp(20px,4vw,40px),calc((100vw - var(--wrap))/2 + 40px));display:flex;flex-direction:column;justify-content:center}
+  .status{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.92rem;margin-bottom:24px;color:var(--navy)}
+  .status i{width:10px;height:10px;border-radius:50%;background:#1f9d55;box-shadow:0 0 0 4px rgba(31,157,85,.18)}
+  .hero p.lead{font-size:1.18rem;color:var(--muted);max-width:34em;margin-bottom:30px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:40px}
+  .hero-facts{display:grid;grid-template-columns:repeat(3,auto);gap:28px;border-top:1px solid var(--line);padding-top:22px;margin:0;justify-content:start}
+  .hero-facts div{font-size:.9rem;color:var(--muted);line-height:1.4}
+  .hero-facts dt{font-weight:800;color:var(--navy);font-size:1rem}
+  .hero-facts dd{margin:0}
+  .hero-img{position:relative;overflow:hidden;background:var(--navy)}
+  .hero-img img{width:100%;height:100%;object-fit:cover;object-position:35% 60%}
+  .hero-img figcaption{position:absolute;left:0;bottom:0;background:var(--navy);color:#fff;font-size:.85rem;font-weight:600;padding:12px 18px;max-width:80%}
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;min-height:0;max-height:none}
+    .hero-img{order:-1;height:46vw;min-height:220px}
+    .hero-copy{padding:36px 20px 44px}
+    .hero-facts{grid-template-columns:1fr 1fr;gap:18px}
+  }
+  @media (max-width:480px){.hero-actions .btn{width:100%;justify-content:center}}
+
+  /* Services */
+  section{padding:clamp(64px,9vw,120px) 0}
+  .services-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,88px);align-items:start}
+  .services-intro{position:sticky;top:110px}
+  .services-intro p{color:var(--muted)}
+  .services-intro img{aspect-ratio:4/3;object-fit:cover;object-position:60% 50%;border-radius:var(--r);margin-top:28px;width:100%}
+  .svc{list-style:none;margin:0;padding:0;border-top:2px solid var(--navy)}
+  .svc li{display:grid;grid-template-columns:1fr auto;gap:8px 32px;padding:28px 0;border-bottom:1px solid var(--line)}
+  .svc h3{margin:0}
+  .svc .price{font-weight:800;font-size:1.05rem;white-space:nowrap;text-align:right}
+  .svc .price small{display:block;font-weight:500;font-size:.8rem;color:var(--muted)}
+  .svc p{grid-column:1/-1;margin:0;color:var(--muted);max-width:40em}
+  .svc ul.tags{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:6px 0 0}
+  .svc ul.tags li{display:block;padding:4px 10px;border:1px solid var(--line);border-radius:30px;font-size:.82rem;font-weight:600;color:var(--navy)}
+  .svc li.plan{background:var(--ice);margin:0 -20px;padding:28px 20px;border-bottom:none;border-left:4px solid var(--orange)}
+  .svc li.plan .price{font-size:1.5rem}
+  @media (max-width:860px){.services-grid{grid-template-columns:1fr}.services-intro{position:static}.services-intro img{aspect-ratio:16/9}}
+  @media (max-width:480px){.svc li{grid-template-columns:1fr}.svc .price{text-align:left}}
+
+  /* Offer */
+  .offer{position:relative;padding:0;background:var(--navy);color:#fff}
+  .offer-inner{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
+  .offer-img img{width:100%;height:100%;object-fit:cover;object-position:40% 50%}
+  .offer-copy{padding:clamp(44px,6vw,88px) clamp(20px,5vw,72px)}
+  .offer .tag{display:inline-block;background:var(--orange);color:var(--navy);font-weight:800;padding:6px 12px;border-radius:4px;font-size:.9rem;margin-bottom:20px}
+  .offer .big{font-size:clamp(3.5rem,8vw,6rem);font-weight:800;line-height:1;letter-spacing:-.04em;margin:8px 0 6px}
+  .offer .big s{font-size:.35em;font-weight:600;opacity:.7;margin-left:10px;letter-spacing:0}
+  .offer p{color:#cfdbea}
+  .checks{list-style:none;padding:0;margin:24px 0 32px;display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}
+  .checks li{display:flex;gap:10px;font-weight:600;font-size:.97rem}
+  .checks svg{width:18px;height:18px;flex:none;margin-top:4px;color:var(--orange)}
+  .offer .fine{font-size:.85rem;color:#b5c4d8;margin-top:22px}
+  @media (max-width:900px){.offer-inner{grid-template-columns:1fr}.offer-img{height:52vw;min-height:220px}}
+  @media (max-width:480px){.checks{grid-template-columns:1fr}}
+
+  /* Plan table */
+  .plan-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+  .plan-head p{max-width:30em;color:var(--muted);margin:0}
+  .table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r)}
+  table{width:100%;border-collapse:collapse;min-width:560px}
+  th,td{text-align:left;padding:18px 22px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{font-weight:800;font-size:1rem;background:var(--ice)}
+  thead th.care{background:var(--navy);color:#fff}
+  thead th span{display:block;font-weight:500;font-size:.85rem;opacity:.85}
+  tbody th{font-weight:700;width:38%}
+  td.care{font-weight:700;background:#f7fafd}
+  tbody tr:last-child th,tbody tr:last-child td{border-bottom:none}
+  .plan-foot{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:28px;color:var(--muted)}
+
+  /* Area */
+  .area{background:var(--ice)}
+  .area-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(32px,6vw,80px)}
+  .area-grid > div > p{color:var(--muted)}
+  .area-lists{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .area-lists h3{font-size:1rem;border-bottom:2px solid var(--navy);padding-bottom:10px}
+  .area-lists ul{list-style:none;padding:0;margin:0;columns:2;column-gap:20px}
+  .area-lists li{padding:5px 0;font-weight:600;break-inside:avoid}
+  .area-note{margin-top:32px;background:#fff;padding:22px 24px;border-radius:var(--r);font-size:.98rem}
+  .area-note a{font-weight:800}
+  @media (max-width:860px){.area-grid{grid-template-columns:1fr}}
+  @media (max-width:520px){.area-lists{grid-template-columns:1fr}}
+
+  /* Owner / no reviews */
+  .owner-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(32px,6vw,88px);align-items:start}
+  .letter{font-size:1.15rem;line-height:1.7}
+  .letter p:first-of-type{font-size:1.35rem;font-weight:700;line-height:1.45;letter-spacing:-.01em}
+  .sig{font-weight:800;margin-top:24px}
+  .sig span{display:block;font-weight:500;color:var(--muted);font-size:.95rem}
+  .reviews-slot{border:2px dashed #9fb1c7;border-radius:var(--r);padding:28px}
+  .reviews-slot h3{margin-bottom:10px}
+  .reviews-slot p{color:var(--muted);font-size:.98rem}
+  .promises{list-style:none;padding:0;margin:28px 0 0}
+  .promises li{padding:16px 0;border-top:1px solid var(--line)}
+  .promises strong{display:block}
+  .promises span{color:var(--muted);font-size:.95rem}
+  @media (max-width:860px){.owner-grid{grid-template-columns:1fr}}
+
+  /* FAQ */
+  .faq{border-top:1px solid var(--line)}
+  .faq-grid{display:grid;grid-template-columns:1fr 2fr;gap:clamp(32px,6vw,88px)}
+  .faq-grid > div:first-child p{color:var(--muted)}
+  details{border-bottom:1px solid var(--line)}
+  details:first-of-type{border-top:2px solid var(--navy)}
+  summary{cursor:pointer;list-style:none;padding:22px 40px 22px 0;font-weight:700;font-size:1.1rem;position:relative}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"";position:absolute;right:6px;top:50%;width:12px;height:12px;border-right:3px solid var(--navy);border-bottom:3px solid var(--navy);transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+  details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+  details p{color:var(--muted);margin:0 0 22px;max-width:44em}
+  @media (max-width:860px){.faq-grid{grid-template-columns:1fr}}
+
+  /* Booking */
+  .book{background:var(--navy);color:#fff}
+  .book-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(32px,6vw,80px)}
+  .book-grid > div:first-child p{color:#cfdbea}
+  .bigphone{display:inline-block;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:800;color:#fff;text-decoration:none;letter-spacing:-.02em;margin:8px 0 6px;border-bottom:3px solid var(--orange)}
+  .book form,.thanks{background:#fff;color:var(--ink);border-radius:var(--r);padding:clamp(24px,4vw,40px)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .field{margin-bottom:18px}
+  label,.legend{display:block;font-weight:700;font-size:.95rem;margin-bottom:6px}
+  .opt{font-weight:500;color:var(--muted)}
+  input,select,textarea{width:100%;font:inherit;font-weight:500;color:var(--ink);padding:13px 14px;border:1.5px solid #8a9bb2;border-radius:var(--r);background:#fff}
+  textarea{min-height:110px;resize:vertical}
+  input:focus,select:focus,textarea:focus{outline:3px solid var(--orange);outline-offset:1px;border-color:var(--navy)}
+  [aria-invalid="true"]{border-color:#b42318;background:#fff8f7}
+  .err{display:none;color:#b42318;font-size:.88rem;font-weight:600;margin-top:5px}
+  .field.bad .err{display:block}
+  fieldset{border:0;padding:0;margin:0 0 18px}
+  .radios{display:flex;flex-wrap:wrap;gap:10px}
+  .radios label{display:flex;align-items:center;gap:8px;font-weight:600;border:1.5px solid var(--line);border-radius:var(--r);padding:10px 14px;margin:0;cursor:pointer}
+  .radios input{width:auto;accent-color:var(--navy)}
+  .form-foot{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:6px}
+  .form-foot small{color:var(--muted)}
+  .thanks h3{font-size:1.6rem}
+  .thanks p{color:var(--muted)}
+  @media (max-width:560px){.row{grid-template-columns:1fr;gap:0}}
+  @media (max-width:860px){.book-grid{grid-template-columns:1fr}}
+
+  /* Footer */
+  footer{background:var(--navy-2);color:#cfdbea;padding:64px 0 28px;font-size:.95rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+  footer h2{font-size:1rem;color:#fff;letter-spacing:0;margin-bottom:12px}
+  footer a{color:#fff}
+  footer ul{list-style:none;padding:0;margin:0}
+  footer li{padding:3px 0}
+  footer .logo{color:#fff;margin-bottom:14px}
+  footer .logo small{color:#b5c4d8}
+  .foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid #2a3f60;margin-top:44px;padding-top:22px;font-size:.85rem}
+  @media (max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:480px){.foot-grid{grid-template-columns:1fr}}
+
+  /* Mobile sticky call bar */
+  .callbar{display:none}
+  @media (max-width:640px){
+    .callbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:40;justify-content:center;box-shadow:0 10px 24px -8px rgba(12,28,53,.5)}
+    footer{padding-bottom:96px}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M4 12.5l5 5L20 6.5"/></symbol>
+  <symbol id="i-mark" viewBox="0 0 40 40"><rect width="40" height="40" rx="7" fill="#13294B"/><path d="M7 29l9-14 5 7 4-5 8 12z" fill="#fff"/><path d="M21 22l4-5 8 12h-5z" fill="#FF6B2C"/><path d="M13 11h14" stroke="#FF6B2C" stroke-width="2.5" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="site" id="top">
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="Northline Heating & Air, back to top">
+      <svg aria-hidden="true"><use href="#i-mark"/></svg>
+      <span><span data-biz>Northline Heating & Air</span><small>Furnace · AC · Heat pumps</small></span>
+    </a>
+    <nav class="main" id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#tune-up">Tune-up offer</a></li>
+        <li><a href="#plan">Care plan</a></li>
+        <li><a href="#area">Service area</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#book">Book a visit</a></li>
+      </ul>
+    </nav>
+    <div class="bar-call">
+      <a class="btn btn-call" href="tel:+17205550163"><svg aria-hidden="true"><use href="#i-phone"/></svg><span class="t num">(720) 555-0163</span><span class="t" hidden>Call</span></a>
+      <button class="menu-btn" aria-expanded="false" aria-controls="nav"><span class="l" aria-hidden="true"></span>Menu</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-h" style="padding:0">
+    <div class="hero-copy">
+      <p class="status"><i aria-hidden="true"></i>Booking same-day visits today</p>
+      <h1 id="hero-h">Same-day heating &amp; cooling repair across <span data-city>Denver</span>.</h1>
+      <p class="lead">Furnace quit at 6&nbsp;a.m.? AC gave up in a July heat wave? Call before 2&nbsp;p.m. and a licensed tech is at your door the same day, with a flat-rate price before any work starts.</p>
+      <div class="hero-actions">
+        <a class="btn btn-call" href="tel:+17205550163"><svg aria-hidden="true"><use href="#i-phone"/></svg>Emergency? Call (720) 555-0163</a>
+        <a class="btn btn-ghost" href="#book">Book a visit online</a>
+      </div>
+      <dl class="hero-facts">
+        <div><dt>Same day</dt><dd>for calls before 2&nbsp;p.m.</dd></div>
+        <div><dt>$89 diagnostic</dt><dd>waived if we do the repair</dd></div>
+        <div><dt>Licensed &amp; insured</dt><dd>in <span data-city>Denver</span> and the metro</dd></div>
+      </dl>
+    </div>
+    <figure class="hero-img" style="margin:0">
+      <img src="img/1.jpg" alt="A Northline technician kneels beside a modern outdoor heat pump next to a Denver home on a clear, cold morning, with snow-capped mountains faint in the distance" width="1600" height="900" fetchpriority="high">
+      <figcaption>Cold-climate heat pump install, west side of <span data-city>Denver</span></figcaption>
+    </figure>
+  </section>
+
+  <section id="services" aria-labelledby="svc-h">
+    <div class="wrap services-grid">
+      <div class="services-intro">
+        <h2 id="svc-h">What we fix, fit and look after</h2>
+        <p>We keep the list short on purpose. Heating and cooling for homes is all we do, so the technician who shows up has done your exact job many times over.</p>
+        <p>Every quote is a flat price, in writing, before we pick up a wrench.</p>
+        <img src="img/3.jpg" alt="Close-up of a technician's hands holding a digital gauge manifold connected to an air conditioning unit to check refrigerant pressure" width="1600" height="900" loading="lazy">
+      </div>
+      <ul class="svc">
+        <li>
+          <h3>Furnace repair</h3>
+          <div class="price">$89 <small>diagnostic, waived with repair</small></div>
+          <p>No heat, short cycling, a burning smell or a furnace that won't stop running. We carry igniters, flame sensors, inducer motors and control boards for most major brands on the truck, so the majority of repairs are finished on the first visit.</p>
+          <ul class="tags"><li>Gas &amp; electric furnaces</li><li>Boiler troubleshooting</li><li>CO safety check included</li></ul>
+        </li>
+        <li>
+          <h3>Air conditioning installation</h3>
+          <div class="price">Free <small>in-home estimate</small></div>
+          <p>We size every system with a room-by-room load calculation instead of guessing from the old unit's label. That matters here: an oversized AC in a dry climate short-cycles, wears out early and still leaves upstairs bedrooms hot.</p>
+          <ul class="tags"><li>Central AC</li><li>Ductless mini-splits</li><li>Evaporative cooler swaps</li></ul>
+        </li>
+        <li>
+          <h3>Heat pumps</h3>
+          <div class="price">Free <small>estimate + rebate check</small></div>
+          <p>Modern cold-climate heat pumps keep heating well below zero, and they cool in summer too. We'll tell you honestly whether one makes sense for your house, set up a gas furnace as backup if it doesn't fully, and handle the Xcel Energy rebate and federal tax credit paperwork.</p>
+          <ul class="tags"><li>Ducted &amp; ductless</li><li>Dual-fuel setups</li><li>Rebate paperwork handled</li></ul>
+        </li>
+        <li class="plan">
+          <h3>Northline Care maintenance plan</h3>
+          <div class="price">$14/mo <small>cancel anytime</small></div>
+          <p>A furnace tune-up every fall, an AC tune-up every spring, priority scheduling when something breaks and 15% off any repair. Most homeowners spend less than the cost of one emergency visit per year. <a href="#plan">See what's included</a>.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="offer" id="tune-up" aria-labelledby="offer-h">
+    <div class="offer-inner">
+      <div class="offer-img"><img src="img/2.jpg" alt="Bright modern living room with a sleek wall thermostat in focus, warm wood floors and a large window looking onto a snowy Colorado street" width="1600" height="900" loading="lazy"></div>
+      <div class="offer-copy">
+        <span class="tag">Opening-season offer</span>
+        <h2 id="offer-h">Get ahead of the first cold snap.</h2>
+        <p class="big">$69 <s>$119</s></p>
+        <p>A full 21-point furnace or AC tune-up for our first customers. Book it now and you won't be waiting in line the morning after the first hard freeze.</p>
+        <ul class="checks">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Burner, igniter &amp; flame sensor cleaned</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Heat exchanger inspected for cracks</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Carbon monoxide test at every vent</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Gas pressure set for 5,280 ft</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Filter replaced (standard sizes)</li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg>Written report with photos</li>
+        </ul>
+        <a class="btn btn-call" href="#book">Claim the $69 tune-up</a>
+        <p class="fine">One per household, single-system homes. Mention "first visit" when you call. If we find a problem, you get a flat-rate quote and no pressure to say yes on the spot.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="plan" aria-labelledby="plan-h">
+    <div class="wrap">
+      <div class="plan-head">
+        <h2 id="plan-h">The $14 a month plan, line by line</h2>
+        <p>No contract term, no auto-renewal tricks. Pay monthly, cancel with one phone call, and keep any discount you've already earned.</p>
+      </div>
+      <div class="table-scroll" role="region" aria-label="Care plan comparison table" tabindex="0">
+        <table>
+          <thead>
+            <tr><th scope="col">What you get</th><th scope="col">Pay as you go</th><th scope="col" class="care">Northline Care<span>$14/mo per system</span></th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Fall furnace tune-up</th><td>$119</td><td class="care">Included</td></tr>
+            <tr><th scope="row">Spring AC or heat pump tune-up</th><td>$119</td><td class="care">Included</td></tr>
+            <tr><th scope="row">Repair pricing</th><td>Standard flat rate</td><td class="care">15% off every repair</td></tr>
+            <tr><th scope="row">Scheduling when something breaks</th><td>Next open slot</td><td class="care">Front of the queue</td></tr>
+            <tr><th scope="row">Evening &amp; weekend emergency fee</th><td>$95</td><td class="care">Waived</td></tr>
+            <tr><th scope="row">Filter reminder texts</th><td>—</td><td class="care">Every 90 days, with your size</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="plan-foot">
+        <a class="btn btn-ghost" href="#book">Start a Care plan</a>
+        <span>$168 a year covers two tune-ups worth $238 before any repair discount.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="area" id="area" aria-labelledby="area-h">
+    <div class="wrap area-grid">
+      <div>
+        <h2 id="area-h">Where our trucks go</h2>
+        <p>We're based in north <span data-city>Denver</span> and keep our service area tight so "same day" actually means same day. If you're on this list, we can typically reach you within an hour of dispatch.</p>
+        <div class="area-note">Not on the list? Call <a href="tel:+17205550163">(720) 555-0163</a>. If we can get there in under 45 minutes, we'll come, with no added trip charge.</div>
+      </div>
+      <div class="area-lists">
+        <div>
+          <h3><span data-city>Denver</span> neighborhoods</h3>
+          <ul>
+            <li>Highland</li><li>Sunnyside</li><li>Berkeley</li><li>Sloan's Lake</li><li>Park Hill</li><li>Central Park</li><li>Congress Park</li><li>Capitol Hill</li><li>Wash Park</li><li>Baker</li><li>Platt Park</li><li>University</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Nearby cities</h3>
+          <ul>
+            <li>Arvada</li><li>Wheat Ridge</li><li>Edgewater</li><li>Lakewood</li><li>Englewood</li><li>Glendale</li><li>Aurora (west)</li><li>Commerce City</li><li>Thornton</li><li>Westminster</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-h">
+    <div class="wrap owner-grid">
+      <div class="letter">
+        <h2 id="about-h">A note from the owner</h2>
+        <p>I started <span data-biz>Northline Heating & Air</span> because I kept hearing the same story: a furnace dies in January, and the homeowner gets a $9,000 replacement quote for something that needed a $180 part.</p>
+        <p>We're new, so I'll be straight with you about how we work. You'll get a flat price before we start. If a repair makes more sense than a replacement, we'll say so, even when the replacement would be the bigger ticket. Every tech wears shoe covers, takes photos of what they found, and leaves the utility room cleaner than it was.</p>
+        <p>I still answer the phone myself most mornings. If anything about a visit isn't right, ask for me.</p>
+        <p class="sig">Dana Kowalski<span>Owner, <span data-biz>Northline Heating & Air</span></span></p>
+      </div>
+      <aside aria-labelledby="rev-h">
+        <div class="reviews-slot">
+          <h3 id="rev-h">Book your first visit</h3>
+          <p>This is where our reviews will go. We just opened, so there aren't any yet, and we won't invent them. Be one of our first customers and tell everyone exactly how it went.</p>
+          <a class="btn btn-ghost" href="#book">Book a first visit</a>
+        </div>
+        <ul class="promises">
+          <li><strong>Price in writing first</strong><span>The quote you approve is the price you pay. No surprise line items.</span></li>
+          <li><strong>1-year labor guarantee on every repair</strong><span>If the same issue comes back within 12 months, the fix is on us.</span></li>
+          <li><strong>Licensed mechanical contractor, fully insured</strong><span>License and insurance certificate printed on every estimate. Ask to see them.</span></li>
+          <li><strong>Permits pulled on every install</strong><span>We handle city permits and inspections so your new system is on record.</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="faq-h">
+    <div class="wrap faq-grid">
+      <div>
+        <h2 id="faq-h">Questions people actually ask us</h2>
+        <p>Something not covered here? Call and ask. You'll get a real answer, not a sales pitch.</p>
+      </div>
+      <div>
+        <details>
+          <summary>Is "same-day" really same-day?</summary>
+          <p>For calls before 2&nbsp;p.m. on weekdays, yes. After that, or on a fully booked day, we'll give you the first slot the next morning and an honest arrival window. If you have no heat and it's below freezing, call any time: we run an after-hours line for exactly that.</p>
+        </details>
+        <details>
+          <summary>What does the $89 diagnostic cover?</summary>
+          <p>The trip, a full inspection of the system, and a written explanation of what's wrong with a flat-rate price to fix it. If you go ahead with the repair, the $89 comes off the bill. If you don't, you still keep the report.</p>
+        </details>
+        <details>
+          <summary>Do heat pumps actually work in a <span data-city>Denver</span> winter?</summary>
+          <p>Current cold-climate models do. Many deliver full heat down to around 5°F and keep working well below zero. For older or drafty homes we often recommend a dual-fuel setup, where a gas furnace takes over on the coldest nights. We'll run the numbers for your house before recommending anything.</p>
+        </details>
+        <details>
+          <summary>Does altitude matter for my furnace?</summary>
+          <p>It does. Gas appliances at 5,280&nbsp;ft need their gas pressure and combustion set for thinner air. A furnace set up for sea level can run hot, sooty or inefficient. We check and adjust this on every tune-up and install.</p>
+        </details>
+        <details>
+          <summary>Which brands do you work on?</summary>
+          <p>We repair all the major residential brands. For installs we're not locked to one manufacturer, so we recommend what fits your house and budget and explain why.</p>
+        </details>
+        <details>
+          <summary>Can I cancel the Care plan?</summary>
+          <p>Anytime, with a phone call or email. There's no cancellation fee and no minimum term. If you've already had a tune-up that month, there's nothing to pay back.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" id="book" aria-labelledby="book-h">
+    <div class="wrap book-grid">
+      <div>
+        <h2 id="book-h">Book a visit</h2>
+        <p>Tell us what's going on and we'll call back within an hour during business hours to confirm a time.</p>
+        <p>No heat or cooling right now? Skip the form and call:</p>
+        <a class="bigphone" href="tel:+17205550163">(720) 555-0163</a>
+        <p style="margin-top:20px">Mon–Fri 7&nbsp;a.m.–7&nbsp;p.m.<br>Sat 8&nbsp;a.m.–4&nbsp;p.m.<br>No-heat emergencies: 24/7</p>
+      </div>
+      <div>
+        <form id="bookForm" novalidate>
+          <div class="row">
+            <div class="field">
+              <label for="f-name">Your name</label>
+              <input id="f-name" name="name" autocomplete="name" required aria-describedby="e-name">
+              <p class="err" id="e-name">Please enter your name.</p>
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" required aria-describedby="e-phone">
+              <p class="err" id="e-phone">Please enter a 10-digit phone number.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="f-zip">ZIP code</label>
+              <input id="f-zip" name="zip" inputmode="numeric" autocomplete="postal-code" required aria-describedby="e-zip">
+              <p class="err" id="e-zip">Please enter a 5-digit ZIP code.</p>
+            </div>
+            <div class="field">
+              <label for="f-svc">What do you need?</label>
+              <select id="f-svc" name="service" required aria-describedby="e-svc">
+                <option value="">Choose one</option>
+                <option>Furnace repair</option>
+                <option>AC repair</option>
+                <option>$69 opening tune-up</option>
+                <option>New AC or furnace estimate</option>
+                <option>Heat pump estimate</option>
+                <option>Start a Care plan</option>
+              </select>
+              <p class="err" id="e-svc">Please choose a service.</p>
+            </div>
+          </div>
+          <fieldset>
+            <legend class="legend">Best time for a visit <span class="opt">(optional)</span></legend>
+            <div class="radios">
+              <label><input type="radio" name="time" value="morning"> Morning</label>
+              <label><input type="radio" name="time" value="afternoon"> Afternoon</label>
+              <label><input type="radio" name="time" value="asap" checked> As soon as possible</label>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="f-msg">What's happening? <span class="opt">(optional)</span></label>
+            <textarea id="f-msg" name="message" placeholder="e.g. Furnace clicks but won't light, about 15 years old"></textarea>
+          </div>
+          <div class="form-foot">
+            <button class="btn btn-call" type="submit">Request my visit</button>
+            <small>We only use your number to schedule this visit.</small>
+          </div>
+        </form>
+        <div class="thanks" id="thanks" hidden tabindex="-1">
+          <h3>Thanks, <span id="t-name">neighbor</span>. You're on the list.</h3>
+          <p>We'll call you back within an hour during business hours to lock in a time. If your heat is out and it's freezing, don't wait for us: call <a href="tel:+17205550163">(720) 555-0163</a> now.</p>
+          <button class="btn btn-ghost" type="button" id="again">Send another request</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#top"><svg aria-hidden="true" width="34" height="34"><use href="#i-mark"/></svg><span><span data-biz>Northline Heating & Air</span><small>Furnace · AC · Heat pumps</small></span></a>
+        <p>Home heating and cooling installation, repair and maintenance for the <span data-city>Denver</span> metro.</p>
+      </div>
+      <div>
+        <h2>Visit &amp; mail</h2>
+        <address style="font-style:normal">Shop in Globeville<br>North <span data-city>Denver</span>, CO 80216<br>We come to you. Shop visits by appointment.</address>
+      </div>
+      <div>
+        <h2>Hours</h2>
+        <ul><li>Mon–Fri: 7 a.m.–7 p.m.</li><li>Sat: 8 a.m.–4 p.m.</li><li>Sun: emergencies only</li><li>No-heat calls: 24/7</li></ul>
+      </div>
+      <div>
+        <h2>Call or book</h2>
+        <ul><li><a href="tel:+17205550163">(720) 555-0163</a></li><li><a href="#book">Book online</a></li><li><a href="#tune-up">$69 tune-up offer</a></li><li><a href="#faq">FAQ</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="yr">2025</span> <span data-biz>Northline Heating & Air</span>. Licensed &amp; insured mechanical contractor.</span>
+      <span>Website by <a href="../../index.html" target="_top">Renaissance Studio</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="btn btn-call callbar" href="tel:+17205550163"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call now: (720) 555-0163</a>
+
+<script>
+(function(){
+  // Prospect preview: ?name=...&city=...
+  var q=new URLSearchParams(location.search),n=q.get('name'),c=q.get('city'); if(c){c=c.replace(/,\s*[A-Za-z]{2}$/,'').trim();}
+  if(n)document.querySelectorAll('[data-biz]').forEach(function(e){e.textContent=n});
+  if(c)document.querySelectorAll('[data-city]').forEach(function(e){e.textContent=c});
+  if(n||c)document.title=(n||'Northline Heating & Air')+' | Furnace, AC & Heat Pump Service in '+(c||'Denver');
+
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  // Header shadow
+  var h=document.querySelector('header.site');
+  addEventListener('scroll',function(){h.classList.toggle('scrolled',scrollY>8)},{passive:true});
+
+  // Mobile menu
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('nav');
+  function setMenu(o){btn.setAttribute('aria-expanded',o);nav.classList.toggle('open',o)}
+  btn.addEventListener('click',function(){setMenu(btn.getAttribute('aria-expanded')!=='true')});
+  nav.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false)});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){setMenu(false);btn.focus()}});
+
+  // Form
+  var f=document.getElementById('bookForm'),t=document.getElementById('thanks');
+  var rules={name:function(v){return v.trim().length>1},phone:function(v){return v.replace(/\D/g,'').replace(/^1/,'').length===10},zip:function(v){return /^\d{5}$/.test(v.trim())},service:function(v){return v!==''}};
+  function check(el){var ok=rules[el.name](el.value);el.setAttribute('aria-invalid',!ok);el.closest('.field').classList.toggle('bad',!ok);return ok}
+  Object.keys(rules).forEach(function(k){f.elements[k].addEventListener('blur',function(){if(this.value)check(this)})});
+  f.addEventListener('submit',function(e){
+    e.preventDefault();var first=null;
+    Object.keys(rules).forEach(function(k){var el=f.elements[k];if(!check(el)&&!first)first=el});
+    if(first){first.focus();return}
+    document.getElementById('t-name').textContent=f.elements.name.value.trim().split(' ')[0];
+    f.hidden=true;t.hidden=false;t.focus();
+  });
+  document.getElementById('again').addEventListener('click',function(){f.reset();t.hidden=true;f.hidden=false;f.elements.name.focus()});
+})();
+</script>
+</body>
+</html>

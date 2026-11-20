@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Juniper Family Dental | Family &amp; Cosmetic Dentistry in Portland, OR</title>
+<meta name="description" content="A calm, unhurried family and cosmetic dental practice in Portland, OR. Cleanings, kids' visits, whitening, Invisalign and same-day emergencies. New-patient visit $99.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --juniper:#2F5D50; --juniper-deep:#22463c; --sage:#DDE8E1; --sage-soft:#EEF3EF;
+  --white:#FBF9F5; --paper:#F5F1EA; --blush:#F3DFD7; --blush-deep:#9A4E3E;
+  --ink:#1F2A26; --muted:#4A5952; --line:#D5DDD7;
+  --serif:'Newsreader', Georgia, serif; --sans:'Albert Sans', system-ui, sans-serif;
+  --wrap:1200px; --radius:14px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font:400 1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;margin:0 0 .5em;letter-spacing:-.01em}
+h1{font-size:clamp(2.4rem,5.2vw,4.1rem)}
+h2{font-size:clamp(1.9rem,3.6vw,2.8rem)}
+h3{font-size:1.4rem}
+p{margin:0 0 1em}
+a{color:var(--juniper);text-underline-offset:3px}
+a:hover{color:var(--juniper-deep)}
+:focus-visible{outline:3px solid var(--blush-deep);outline-offset:3px;border-radius:4px}
+.wrap{width:min(100% - 2.5rem, var(--wrap));margin-inline:auto}
+section{scroll-margin-top:84px}
+.skip{position:absolute;left:1rem;top:-4rem;background:var(--juniper);color:#fff;padding:.6rem 1rem;border-radius:8px;z-index:100}
+.skip:focus{top:1rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.4rem;border-radius:999px;font:600 1rem/1 var(--sans);text-decoration:none;border:2px solid var(--juniper);cursor:pointer;transition:background .2s,color .2s}
+.btn-solid{background:var(--juniper);color:#fff}
+.btn-solid:hover{background:var(--juniper-deep);border-color:var(--juniper-deep);color:#fff}
+.btn-line{background:transparent;color:var(--juniper)}
+.btn-line:hover{background:var(--sage)}
+.lede{font-size:1.2rem;color:var(--muted);max-width:34em}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:50;background:var(--white);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:72px}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--juniper);font:500 1.3rem/1 var(--serif)}
+.logo svg{flex:none}
+.nav{display:flex;align-items:center;gap:1.6rem}
+.nav ul{display:flex;gap:1.4rem;list-style:none;margin:0;padding:0}
+.nav ul a{color:var(--ink);text-decoration:none;font-weight:500;font-size:.98rem}
+.nav ul a:hover{color:var(--juniper);text-decoration:underline}
+.nav .tel{font-weight:600;text-decoration:none;white-space:nowrap}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:10px;padding:.55rem .7rem;color:var(--juniper);font:600 .95rem var(--sans);cursor:pointer;align-items:center;gap:.5rem}
+.menu-btn .bars{width:18px;height:12px;position:relative}
+.menu-btn .bars::before,.menu-btn .bars::after,.menu-btn .bars i{content:"";position:absolute;left:0;right:0;height:2px;background:currentColor;border-radius:2px}
+.menu-btn .bars::before{top:0}.menu-btn .bars i{top:5px}.menu-btn .bars::after{bottom:0}
+
+/* Hero */
+.hero{padding:clamp(2.5rem,6vw,5rem) 0 clamp(3rem,6vw,5.5rem)}
+.hero-grid{display:grid;grid-template-columns:5fr 6fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero h1 span.soft{color:var(--juniper)}
+.hero .actions{display:flex;flex-wrap:wrap;gap:.8rem;margin:1.8rem 0 1.4rem}
+.hero .facts{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;color:var(--muted);font-size:.95rem}
+.hero .facts li::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--juniper);margin-right:.5rem;vertical-align:middle}
+.hero-media{position:relative}
+.hero-media .frame{border-radius:200px 200px var(--radius) var(--radius);overflow:hidden;aspect-ratio:4/4.4;background:var(--sage)}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:62% 50%}
+.offer-tag{position:absolute;left:-2.2rem;bottom:2rem;background:var(--blush);padding:1.1rem 1.3rem;border-radius:var(--radius);max-width:15rem;box-shadow:0 10px 30px rgba(47,93,80,.12)}
+.offer-tag strong{display:block;font:500 2.2rem/1 var(--serif);color:var(--ink)}
+.offer-tag span{font-size:.92rem;color:#3d2f2a}
+@media (prefers-reduced-motion:no-preference){
+  .hero-media img{animation:settle 1.6s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes settle{from{transform:scale(1.06);opacity:.6}to{transform:none;opacity:1}}
+}
+
+/* Offer band */
+.offer{background:var(--juniper);color:#fff;padding:clamp(2.5rem,5vw,4rem) 0}
+.offer-grid{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+.offer .price{font:500 clamp(4rem,9vw,6.5rem)/.9 var(--serif);color:var(--blush)}
+.offer .price small{display:block;font:500 1rem/1.3 var(--sans);color:#E7EFEA;margin-top:.6rem}
+.offer h2{color:#fff;font-size:clamp(1.6rem,2.8vw,2.2rem)}
+.offer p{color:#E7EFEA;margin:0;max-width:38em}
+.offer .btn{background:var(--blush);border-color:var(--blush);color:var(--ink)}
+.offer .btn:hover{background:#fff;border-color:#fff}
+
+/* Services */
+.services{padding:clamp(4rem,8vw,6.5rem) 0}
+.svc-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(2rem,5vw,5rem);align-items:start}
+.svc-aside{position:sticky;top:100px}
+.svc-aside figure{margin:1.8rem 0 0}
+.svc-aside img{border-radius:var(--radius);aspect-ratio:4/3;object-fit:cover;object-position:40% 40%;width:100%}
+.svc-aside figcaption{font-size:.92rem;color:var(--muted);margin-top:.7rem}
+.svc-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.svc-list li{display:grid;grid-template-columns:1fr auto;gap:.3rem 2rem;padding:1.6rem 0;border-bottom:1px solid var(--line)}
+.svc-list h3{margin:0}
+.svc-list .p{font-weight:600;color:var(--juniper);text-align:right;white-space:nowrap}
+.svc-list .p small{display:block;font-weight:400;color:var(--muted);font-size:.85rem}
+.svc-list p{grid-column:1/-1;margin:0;color:var(--muted);max-width:40em}
+.svc-list .urgent{background:var(--blush);border-radius:var(--radius);padding:1.6rem;border:0;margin-top:1rem}
+.svc-list .urgent p{color:#3d2f2a}
+.svc-list .urgent .p{color:var(--blush-deep)}
+.svc-note{font-size:.92rem;color:var(--muted);margin-top:1.2rem}
+
+/* Owner */
+.owner{background:var(--sage-soft);padding:clamp(4rem,8vw,6.5rem) 0}
+.owner-grid{display:grid;grid-template-columns:7fr 4fr;gap:clamp(2rem,6vw,6rem)}
+.owner blockquote{margin:0;font:500 clamp(1.4rem,2.4vw,1.85rem)/1.4 var(--serif);color:var(--ink)}
+.owner blockquote p{margin-bottom:.9em}
+.owner .sig{font-family:var(--sans);font-size:1rem;color:var(--muted);margin-top:1.4rem}
+.owner .sig b{display:block;color:var(--juniper);font-weight:600}
+.promises h3{font-size:1.25rem;margin-bottom:1rem}
+.promises ul{list-style:none;padding:0;margin:0}
+.promises li{padding:1rem 0;border-top:1px solid #c7d6cc;display:flex;gap:.8rem}
+.promises li svg{flex:none;margin-top:.25rem}
+.promises li strong{display:block;font-weight:600}
+.promises li span{color:var(--muted);font-size:.97rem}
+
+/* First visit */
+.visit{padding:clamp(4rem,8vw,6.5rem) 0 0}
+.visit-head{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;margin-bottom:3rem}
+.visit-head p{margin:0;color:var(--muted)}
+.steps{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem 3rem}
+.steps li{counter-increment:s;position:relative;padding-top:3.6rem}
+.steps li:nth-child(3n+2){margin-top:2.5rem}
+.steps li:nth-child(3n){margin-top:5rem}
+.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;top:0;left:0;font:500 2.6rem/1 var(--serif);color:var(--juniper)}
+.steps h3{font-size:1.25rem}
+.steps p{color:var(--muted);margin:0}
+.lobby{position:relative;margin-top:clamp(3rem,7vw,5rem)}
+.lobby img{width:100%;height:clamp(320px,58vw,640px);object-fit:cover;object-position:50% 55%}
+.lobby .panel{position:absolute;right:max(1.25rem,calc((100% - var(--wrap))/2));bottom:-2.5rem;background:var(--white);padding:1.6rem 1.8rem;border-radius:var(--radius);max-width:24rem;box-shadow:0 14px 40px rgba(31,42,38,.12)}
+.lobby .panel p{margin:0;color:var(--muted)}
+.lobby .panel h3{font-size:1.25rem}
+
+/* Insurance */
+.insurance{padding:clamp(6rem,10vw,8rem) 0 clamp(4rem,8vw,6rem)}
+.ins-grid{display:grid;grid-template-columns:4fr 7fr;gap:clamp(2rem,5vw,5rem)}
+table{width:100%;border-collapse:collapse;font-size:1rem}
+caption{text-align:left;font:500 1.3rem var(--serif);margin-bottom:.8rem}
+th,td{text-align:left;padding:.8rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font-weight:600;font-size:.9rem;color:var(--muted);border-bottom:2px solid var(--juniper)}
+td.yes{color:var(--juniper);font-weight:600}
+.member{margin-top:2.5rem;background:var(--paper);border-radius:var(--radius);padding:1.6rem 1.8rem;display:grid;grid-template-columns:1fr auto;gap:1rem 2rem;align-items:center}
+.member h3{margin:0 0 .3rem}
+.member p{margin:0;color:var(--muted)}
+.member .p{font:500 1.9rem/1.1 var(--serif);color:var(--juniper);text-align:right}
+.member .p small{display:block;font:400 .9rem var(--sans);color:var(--muted)}
+
+/* Hours + Book */
+.book{background:var(--paper);padding:clamp(4rem,8vw,6.5rem) 0}
+.book-grid{display:grid;grid-template-columns:5fr 6fr;gap:clamp(2rem,6vw,5.5rem)}
+.hours{margin:1.5rem 0 2rem}
+.hours th{font-weight:500}
+.hours td{text-align:right;font-variant-numeric:tabular-nums}
+.hours tr.closed td{color:var(--muted)}
+.where p{margin:0 0 .6rem}
+.where .area{color:var(--muted);font-size:.97rem}
+form{background:var(--white);border-radius:var(--radius);padding:clamp(1.5rem,4vw,2.5rem);border:1px solid var(--line)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field{margin-bottom:1.1rem}
+label,legend{display:block;font-weight:600;font-size:.95rem;margin-bottom:.35rem}
+.req{color:var(--blush-deep)}
+input,select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--ink);background:#fff;border:1.5px solid #9fb2a8;border-radius:10px;padding:.75rem .85rem}
+textarea{min-height:96px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--sage);border-color:var(--juniper)}
+[aria-invalid="true"]{border-color:var(--blush-deep)}
+.err{color:var(--blush-deep);font-size:.88rem;margin-top:.3rem;min-height:0}
+fieldset{border:0;padding:0;margin:0 0 1.1rem}
+.choices{display:flex;flex-wrap:wrap;gap:.6rem}
+.choices label{display:flex;align-items:center;gap:.45rem;font-weight:500;border:1.5px solid var(--line);border-radius:999px;padding:.45rem .9rem;margin:0;cursor:pointer}
+.choices input{width:auto;accent-color:var(--juniper)}
+.form-note{font-size:.88rem;color:var(--muted);margin:.9rem 0 0}
+.thanks{background:var(--white);border-radius:var(--radius);padding:2.5rem;border:1px solid var(--line)}
+.thanks h3{color:var(--juniper)}
+
+/* FAQ */
+.faq{padding:clamp(4rem,8vw,6.5rem) 0}
+.faq-grid{display:grid;grid-template-columns:4fr 7fr;gap:clamp(2rem,5vw,5rem)}
+details{border-bottom:1px solid var(--line)}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;padding:1.2rem 2.5rem 1.2rem 0;font:500 1.2rem/1.35 var(--serif);position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:.4rem;top:1.45rem;width:10px;height:10px;border-right:2px solid var(--juniper);border-bottom:2px solid var(--juniper);transform:rotate(45deg);transition:transform .2s}
+details[open] summary::after{transform:rotate(-135deg);top:1.7rem}
+details p{color:var(--muted);padding-right:2rem}
+
+/* Footer */
+footer{background:var(--juniper-deep);color:#E3ECE6;padding:4rem 0 2rem;font-size:.97rem}
+footer a{color:#fff}
+.foot-grid{display:grid;grid-template-columns:5fr 3fr 3fr 3fr;gap:2rem}
+footer h2{font-size:1.1rem;color:#fff;margin-bottom:.8rem}
+footer .logo{color:#fff;margin-bottom:1rem}
+footer ul{list-style:none;padding:0;margin:0}
+footer li{display:flex;justify-content:space-between;gap:1rem;max-width:15rem}
+.credit{border-top:1px solid #3b6457;margin-top:3rem;padding-top:1.4rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.88rem;color:#C9D8CF}
+.mobile-cta{display:none}
+
+/* Responsive */
+@media (max-width:1020px){
+  .nav ul{gap:1rem}
+  .nav .tel{display:none}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .menu-btn{display:inline-flex}
+  .nav{position:absolute;top:72px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:.5rem 1.25rem 1.5rem;display:none}
+  .nav.open{display:flex}
+  .nav ul{flex-direction:column;gap:0}
+  .nav ul a{display:block;padding:.9rem 0;border-bottom:1px solid var(--line);font-size:1.1rem}
+  .nav .tel{display:block;padding:1rem 0}
+  .nav .btn{justify-content:center}
+  .hero-grid,.svc-grid,.owner-grid,.ins-grid,.book-grid,.faq-grid,.visit-head{grid-template-columns:1fr}
+  .hero-media{order:-1}
+  .hero-media .frame{aspect-ratio:16/11;border-radius:var(--radius) var(--radius) 120px var(--radius)}
+  .offer-tag{left:auto;right:1rem;bottom:-1.6rem;max-width:13rem}
+  .hero{padding-top:1.25rem}
+  .hero-copy{padding-top:1.2rem}
+  .offer-grid{grid-template-columns:1fr;gap:1rem}
+  .svc-aside{position:static}
+  .steps{grid-template-columns:1fr 1fr}
+  .steps li:nth-child(n){margin-top:0}
+  .lobby .panel{position:relative;right:auto;bottom:auto;margin:-3rem 1.25rem 0;max-width:none}
+  .insurance{padding-top:4rem}
+}
+@media (max-width:600px){
+  body{padding-bottom:70px;font-size:1rem}
+  .steps{grid-template-columns:1fr;gap:1.8rem}
+  .steps li{padding:0 0 0 3.4rem}
+  .steps li::before{font-size:1.8rem;top:.1rem}
+  .row{grid-template-columns:1fr}
+  .svc-list li{grid-template-columns:1fr}
+  .svc-list .p{text-align:left}
+  .member{grid-template-columns:1fr}.member .p{text-align:left}
+  .ins-table thead{display:none}
+  .ins-table tr{display:grid;grid-template-columns:1fr auto;border-bottom:1px solid var(--line);padding:.6rem 0}
+  .ins-table td,.ins-table th{border:0;padding:.15rem 0}
+  .ins-table td:last-child{grid-column:1/-1;color:var(--muted);font-size:.92rem}
+  .foot-grid{grid-template-columns:1fr}
+  .mobile-cta{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--white);border-top:1px solid var(--line);padding:.6rem .8rem}
+  .mobile-cta .btn{justify-content:center;padding:.8rem .5rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="Home">
+      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 30V8" stroke="#2F5D50" stroke-width="2" stroke-linecap="round"/><path d="M16 12c-4-1-6-4-6-8 4 0 6 3 6 8zm0 6c4-1 7-4 7-8-4 0-7 3-7 8zm0 6c-4-1-7-4-7-8 4 0 7 3 7 8z" fill="#2F5D50"/><circle cx="22" cy="21" r="2.4" fill="#C98B7B"/><circle cx="25" cy="17" r="1.8" fill="#C98B7B"/></svg>
+      <span data-biz>Juniper Family Dental</span>
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="site-nav"><span class="bars"><i></i></span><span class="menu-label">Menu</span></button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#first-visit">First visit</a></li>
+        <li><a href="#insurance">Insurance</a></li>
+        <li><a href="#hours">Hours</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a class="tel" href="tel:+15035550186">(503) 555-0186</a>
+      <a class="btn btn-solid" href="#book">Book online</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1 id="hero-title">Dental care that feels like <span class="soft">a slow, easy breath.</span></h1>
+      <p class="lede">Dr. Priya Raman's new family and cosmetic practice in Southeast <span data-city>Portland</span>. Unrushed appointments, prices explained before anything starts, and a chair by the window.</p>
+      <div class="actions">
+        <a class="btn btn-solid" href="#book">Book your first visit</a>
+        <a class="btn btn-line" href="tel:+15035550186">Call (503) 555-0186</a>
+      </div>
+      <ul class="facts">
+        <li>Now welcoming new patients</li>
+        <li>Kids from age 1</li>
+        <li>Same-day emergencies</li>
+      </ul>
+    </div>
+    <div class="hero-media">
+      <div class="frame">
+        <img src="img/1.jpg" alt="A bright treatment room with a white dental chair, light wood cabinets and potted plants, facing tall windows that look out onto green trees." width="1600" height="900">
+      </div>
+      <p class="offer-tag"><strong>$99</strong><span>Opening offer: exam, x-rays and cleaning for new patients.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="offer" aria-labelledby="offer-title">
+  <div class="wrap offer-grid">
+    <p class="price">$99<small>usually $285</small></p>
+    <div>
+      <h2 id="offer-title">Your whole first visit, one honest price.</h2>
+      <p>For our first 150 new patients without insurance: a comprehensive exam, full set of digital x-rays, a gentle cleaning and a written care plan. Have insurance? Most plans cover this visit fully, and we'll add take-home whitening trays (a $249 value) as our thank-you.</p>
+    </div>
+    <a class="btn" href="#book">Claim the offer</a>
+  </div>
+</section>
+
+<section class="services" id="services" aria-labelledby="svc-title">
+  <div class="wrap svc-grid">
+    <div class="svc-aside">
+      <h2 id="svc-title">What we do, and what it costs.</h2>
+      <p class="lede">We post our self-pay prices because you shouldn't have to ask. If you're insured, we'll check your benefits before your appointment and tell you your share.</p>
+      <figure>
+        <img src="img/2.jpg" alt="Dr. Raman, in light green scrubs, chats with a smiling young patient sitting in the dental chair in soft natural light." width="1600" height="900" loading="lazy">
+        <figcaption>Dr. Raman explains every step to kids before she starts. Questions are welcome.</figcaption>
+      </figure>
+    </div>
+    <ul class="svc-list">
+      <li>
+        <h3>Cleanings &amp; checkups</h3>
+        <span class="p">$165<small>adult exam &amp; cleaning</small></span>
+        <p>A full 60-minute appointment, not a 20-minute rush. Includes an oral cancer screening, gum health check and a hygienist who goes at your pace. Numbing gel is always on offer.</p>
+      </li>
+      <li>
+        <h3>Kids' dentistry</h3>
+        <span class="p">$95<small>child exam &amp; cleaning</small></span>
+        <p>First visits from age one, sealants, fluoride varnish and plenty of time to touch the tools. Parents are welcome in the room for every appointment. Sibling visits can be booked back-to-back.</p>
+      </li>
+      <li>
+        <h3>Teeth whitening</h3>
+        <span class="p">$249 / $450<small>take-home / in-office</small></span>
+        <p>Custom-fit trays you use at home over two weeks, or a single 90-minute in-office session. We'll check for sensitivity first and recommend the gentler route if it's a better fit.</p>
+      </li>
+      <li>
+        <h3>Invisalign clear aligners</h3>
+        <span class="p">from $4,800<small>consult &amp; 3D scan free</small></span>
+        <p>A digital scan (no goopy impressions), a preview of your result and a fixed price that includes refinements and your first set of retainers. Monthly payment plans available.</p>
+      </li>
+      <li>
+        <h3>Fillings, crowns &amp; repairs</h3>
+        <span class="p">from $165<small>tooth-coloured fillings</small></span>
+        <p>Composite fillings, same-week crowns and bonding for chips. You'll get a written estimate before any treatment, every time.</p>
+      </li>
+      <li class="urgent">
+        <h3>Dental emergencies</h3>
+        <span class="p">$89<small>same-day emergency exam</small></span>
+        <p>Toothache, a broken tooth or a swollen jaw? Call <a href="tel:+15035550186">(503) 555-0186</a> before 2pm on any weekday and we'll see you that day, whether or not you're already a patient.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="owner" aria-labelledby="owner-title">
+  <div class="wrap owner-grid">
+    <div>
+      <h2 id="owner-title" class="sr-heading" style="font-size:1.25rem;color:var(--juniper)">A note from Dr. Raman</h2>
+      <blockquote>
+        <p>“A lot of people tell me they put off the dentist for years because the last visit felt rushed, or the bill was a surprise. I opened <span data-biz>Juniper Family Dental</span> to fix exactly those two things.</p>
+        <p>We book fewer patients a day so nobody's watching the clock. And you'll always know what something costs before we begin.”</p>
+      </blockquote>
+      <p class="sig"><b>Dr. Priya Raman, DMD</b>Owner and dentist. Licensed by the Oregon Board of Dentistry.</p>
+    </div>
+    <div class="promises">
+      <h3>Our promises to you</h3>
+      <ul>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#2F5D50" stroke-width="2" stroke-linecap="round"/></svg><div><strong>Estimates in writing</strong><span>If your bill comes in higher than we quoted, we cover the difference.</span></div></li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#2F5D50" stroke-width="2" stroke-linecap="round"/></svg><div><strong>You can always pause</strong><span>Raise a hand and we stop. No questions, no sighs.</span></div></li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#2F5D50" stroke-width="2" stroke-linecap="round"/></svg><div><strong>No upselling</strong><span>We'll tell you what's urgent, what can wait, and what's purely cosmetic.</span></div></li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M3 9.5l4 4 8-9" fill="none" stroke="#2F5D50" stroke-width="2" stroke-linecap="round"/></svg><div><strong>Fully licensed &amp; insured</strong><span>Every clinician is licensed in Oregon; the practice carries full malpractice coverage.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="first-visit" aria-labelledby="visit-title">
+  <div class="wrap">
+    <div class="visit-head">
+      <h2 id="visit-title">Your first visit, step by step.</h2>
+      <p>Plan on about 90 minutes. If it's been a long time, or you're nervous, tell us when you book. We'll slow everything down and won't comment on how long it's been.</p>
+    </div>
+    <ol class="steps">
+      <li><h3>Paperwork at home</h3><p>We text you a short health form the day you book. Five minutes on your phone, so you're not juggling a clipboard in the lobby.</p></li>
+      <li><h3>Settle in</h3><p>Grab tea or water, and a weighted blanket if you'd like one. Headphones are on the counter for the chair.</p></li>
+      <li><h3>Talk first, tools later</h3><p>Dr. Raman sits down with you, chair upright, to hear what's bothering you and what you hope for.</p></li>
+      <li><h3>Exam &amp; low-dose x-rays</h3><p>Digital x-rays and intraoral photos you can see on the screen, so you're looking at the same thing we are.</p></li>
+      <li><h3>A gentle cleaning</h3><p>Unless you need a deeper cleaning first, we do it the same day. We'll say so plainly if that changes.</p></li>
+      <li><h3>Your plan, in writing</h3><p>You leave with a printed and emailed plan: what's needed, what's optional, and the cost after insurance.</p></li>
+    </ol>
+  </div>
+  <figure class="lobby" style="margin-inline:0;margin-bottom:0">
+    <img src="img/3.jpg" alt="Our reception area: a warm wooden front desk, leafy plants and soft armchairs lit by afternoon daylight." width="1600" height="900" loading="lazy">
+    <figcaption class="panel">
+      <h3>A waiting room that doesn't feel like one</h3>
+      <p>Wheelchair-accessible entrance and restroom, a quiet corner for anyone who needs it, and a kids' shelf stocked with books, not screens.</p>
+    </figcaption>
+  </figure>
+</section>
+
+<section class="insurance" id="insurance" aria-labelledby="ins-title">
+  <div class="wrap ins-grid">
+    <div>
+      <h2 id="ins-title">Insurance we accept.</h2>
+      <p class="lede">We're in-network with the plans listed here and will file claims for any PPO. Not sure about yours? Call us with your member ID and we'll check while you're on the line.</p>
+      <p>We also accept HSA and FSA cards, and offer interest-free payment plans through CareCredit and Sunbit.</p>
+    </div>
+    <div>
+      <table class="ins-table">
+        <caption>In-network plans</caption>
+        <thead><tr><th scope="col">Plan</th><th scope="col">Status</th><th scope="col">Notes</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Delta Dental of Oregon</th><td class="yes">In-network</td><td>PPO and Premier</td></tr>
+          <tr><th scope="row">Moda Health</th><td class="yes">In-network</td><td>Dental PPO plans</td></tr>
+          <tr><th scope="row">Regence BlueCross BlueShield</th><td class="yes">In-network</td><td>Including employer plans</td></tr>
+          <tr><th scope="row">Cigna</th><td class="yes">In-network</td><td>DPPO</td></tr>
+          <tr><th scope="row">MetLife</th><td class="yes">In-network</td><td>PDP Plus</td></tr>
+          <tr><th scope="row">Aetna</th><td class="yes">In-network</td><td>Dental PPO</td></tr>
+          <tr><th scope="row">Guardian</th><td class="yes">In-network</td><td>DentalGuard Preferred</td></tr>
+          <tr><th scope="row">Other PPO plans</th><td>Out-of-network</td><td>We file for you; most pay at similar rates</td></tr>
+        </tbody>
+      </table>
+      <div class="member">
+        <div><h3>No insurance? Try the Juniper Plan.</h3><p>Two exams and cleanings a year, all routine x-rays, one emergency exam, and 15% off everything else.</p></div>
+        <p class="p">$29/mo<small>adults · $22/mo kids</small></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book" aria-labelledby="book-title">
+  <div class="wrap book-grid">
+    <div id="hours">
+      <h2 id="book-title">Hours &amp; booking.</h2>
+      <p class="lede">Request a time below and we'll call or text to confirm within one business day. Prefer to talk? <a href="tel:+15035550186">(503) 555-0186</a>.</p>
+      <table class="hours">
+        <caption>Office hours</caption>
+        <tbody>
+          <tr><th scope="row">Monday</th><td>8:00am – 5:00pm</td></tr>
+          <tr><th scope="row">Tuesday</th><td>8:00am – 7:00pm</td></tr>
+          <tr><th scope="row">Wednesday</th><td>8:00am – 5:00pm</td></tr>
+          <tr><th scope="row">Thursday</th><td>10:00am – 7:00pm</td></tr>
+          <tr><th scope="row">Friday</th><td>8:00am – 2:00pm</td></tr>
+          <tr><th scope="row">Saturday</th><td>1st &amp; 3rd, 9:00am – 1:00pm</td></tr>
+          <tr class="closed"><th scope="row">Sunday</th><td>Closed</td></tr>
+        </tbody>
+      </table>
+      <div class="where">
+        <h3>Where to find us</h3>
+        <p>2140 SE Division St, Suite 102<br><span data-city>Portland</span>, OR 97202</p>
+        <p class="area">Free patient parking behind the building and a bike rack out front. The FX2 Division bus stops half a block away. Most of our families come from Richmond, Hosford-Abernethy, Creston-Kenilworth, Brooklyn and Sellwood-Moreland.</p>
+      </div>
+    </div>
+    <div>
+      <form id="book-form" novalidate aria-labelledby="form-title">
+        <h3 id="form-title">Request an appointment</h3>
+        <div class="row">
+          <div class="field"><label for="f-name">Full name <span class="req" aria-hidden="true">*</span></label><input id="f-name" name="name" autocomplete="name" required aria-describedby="e-name"><p class="err" id="e-name"></p></div>
+          <div class="field"><label for="f-phone">Phone <span class="req" aria-hidden="true">*</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required aria-describedby="e-phone"><p class="err" id="e-phone"></p></div>
+        </div>
+        <div class="field"><label for="f-email">Email <span class="req" aria-hidden="true">*</span></label><input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="e-email"><p class="err" id="e-email"></p></div>
+        <div class="row">
+          <div class="field"><label for="f-reason">Reason for visit <span class="req" aria-hidden="true">*</span></label>
+            <select id="f-reason" name="reason" required aria-describedby="e-reason">
+              <option value="">Choose one</option>
+              <option>New patient visit ($99 offer)</option>
+              <option>Child's checkup</option>
+              <option>Whitening</option>
+              <option>Invisalign consult</option>
+              <option>Tooth pain or emergency</option>
+              <option>Something else</option>
+            </select><p class="err" id="e-reason"></p></div>
+          <div class="field"><label for="f-ins">Insurance (optional)</label><input id="f-ins" name="insurance" placeholder="e.g. Delta Dental"></div>
+        </div>
+        <fieldset>
+          <legend>Best time for you</legend>
+          <div class="choices">
+            <label><input type="radio" name="time" value="morning" checked> Mornings</label>
+            <label><input type="radio" name="time" value="afternoon"> Afternoons</label>
+            <label><input type="radio" name="time" value="evening"> Tue/Thu evenings</label>
+            <label><input type="radio" name="time" value="saturday"> Saturdays</label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="f-notes">Anything we should know?</label><textarea id="f-notes" name="notes" placeholder="Nerves, accessibility needs, booking for several family members…"></textarea></div>
+        <button class="btn btn-solid" type="submit">Send request</button>
+        <p class="form-note">Fields marked * are required. If you're in severe pain, please call rather than waiting for a reply.</p>
+      </form>
+      <div class="thanks" id="thanks" tabindex="-1" role="status" hidden>
+        <h3>Thank you, <span id="thanks-name">friend</span>.</h3>
+        <p>Your request is in. Someone from our front desk will call or text within one business day to confirm a time and send your short health form.</p>
+        <p>Need us sooner? Call <a href="tel:+15035550186">(503) 555-0186</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq" aria-labelledby="faq-title">
+  <div class="wrap faq-grid">
+    <div>
+      <h2 id="faq-title">Questions people ask us.</h2>
+      <p class="lede">Something not covered here? Call us. A real person at the front desk will answer.</p>
+    </div>
+    <div>
+      <details><summary>I haven't been to a dentist in years. Will I get a lecture?</summary><p>No. Plenty of people take a break from the dentist, for all kinds of reasons. We'll look at where things are today, explain your options without judgment and help you start wherever you're comfortable.</p></details>
+      <details><summary>What age should my child have their first visit?</summary><p>By their first birthday, or within six months of their first tooth. Those early visits are short and mostly about getting comfortable: a ride in the chair, a quick look and tips for brushing at home.</p></details>
+      <details><summary>Do you offer anything for dental anxiety?</summary><p>Yes. We have noise-cancelling headphones, weighted blankets, a hand signal to pause at any time, and nitrous oxide (laughing gas) for $55 per visit. You can also book a no-treatment "meet and talk" appointment at no charge.</p></details>
+      <details><summary>How does the $99 new-patient offer work?</summary><p>It's for our first 150 new patients without dental insurance and covers a comprehensive exam, full x-rays and a routine cleaning. If you need a deeper periodontal cleaning instead, we'll explain why and quote it before going ahead.</p></details>
+      <details><summary>What if I have a dental emergency after hours?</summary><p>Existing patients can call our main number after hours and follow the prompt to reach Dr. Raman's on-call line. For serious facial swelling, trouble breathing or swallowing, or a head injury, go to the nearest emergency room.</p></details>
+      <details><summary>Is the office accessible?</summary><p>Our suite is on the ground floor with a step-free entrance, wide doorways and an accessible restroom. Our treatment chairs lower for easier transfers. Let us know about any needs when you book and we'll plan around them.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <p class="logo"><span data-biz>Juniper Family Dental</span></p>
+        <p>Family and cosmetic dentistry with Dr. Priya Raman, DMD.</p>
+        <p><a href="#book">Book online</a></p>
+      </div>
+      <div>
+        <h2>Visit</h2>
+        <address style="font-style:normal">2140 SE Division St, Suite 102<br><span data-city>Portland</span>, OR 97202</address>
+      </div>
+      <div>
+        <h2>Hours</h2>
+        <ul>
+          <li><span>Mon, Wed</span><span>8–5</span></li>
+          <li><span>Tue</span><span>8–7</span></li>
+          <li><span>Thu</span><span>10–7</span></li>
+          <li><span>Fri</span><span>8–2</span></li>
+          <li><span>Sat (1st, 3rd)</span><span>9–1</span></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Call</h2>
+        <p><a href="tel:+15035550186">(503) 555-0186</a></p>
+        <p>Same-day emergency visits on weekdays when you call before 2pm.</p>
+      </div>
+    </div>
+    <div class="credit">
+      <span>© <span id="yr">2025</span> <span data-biz>Juniper Family Dental</span>, <span data-city>Portland</span>, Oregon</span>
+      <span>Website by <a href="../../index.html" target="_top">Renaissance Studio</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-cta" aria-label="Quick actions">
+  <a class="btn btn-line" href="tel:+15035550186">Call us</a>
+  <a class="btn btn-solid" href="#book">Book online</a>
+</div>
+
+<script>
+// Prospect preview: ?name=...&city=...
+(function(){
+  var q=new URLSearchParams(location.search), n=q.get('name'), c=q.get('city'); if(c){c=c.replace(/,\s*[A-Za-z]{2}$/,'').trim();}
+  if(n) document.querySelectorAll('[data-biz]').forEach(function(e){e.textContent=n});
+  if(c) document.querySelectorAll('[data-city]').forEach(function(e){e.textContent=c});
+  if(n||c) document.title=(n||'Juniper Family Dental')+' | Family & Cosmetic Dentistry in '+(c||'Portland');
+})();
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+// Mobile menu
+var btn=document.querySelector('.menu-btn'), nav=document.getElementById('site-nav');
+function setMenu(open){btn.setAttribute('aria-expanded',open);nav.classList.toggle('open',open);btn.querySelector('.menu-label').textContent=open?'Close':'Menu'}
+btn.addEventListener('click',function(){setMenu(btn.getAttribute('aria-expanded')!=='true')});
+nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){setMenu(false);btn.focus()}});
+
+// Booking form
+var form=document.getElementById('book-form');
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var first=null;
+  form.querySelectorAll('[required]').forEach(function(f){
+    var v=f.value.trim(), msg='';
+    if(!v) msg='Please fill this in.';
+    else if(f.type==='email'&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) msg='Please enter a valid email address.';
+    else if(f.type==='tel'&&v.replace(/\D/g,'').length<10) msg='Please enter a 10-digit phone number.';
+    f.setAttribute('aria-invalid',msg?'true':'false');
+    document.getElementById(f.getAttribute('aria-describedby')).textContent=msg;
+    if(msg&&!first) first=f;
+  });
+  if(first){first.focus();return}
+  document.getElementById('thanks-name').textContent=form.name.value.trim().split(' ')[0];
+  form.hidden=true;
+  var t=document.getElementById('thanks'); t.hidden=false; t.focus();
+});
+</script>
+</body>
+</html>
